@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "private": true,
   "description": "modern-studio",
-  "author": "Daniel Mudlaff",
   "keywords": [
     "gatsby"
   ],
@@ -15,6 +14,7 @@
     "clean": "gatsby clean"
   },
   "dependencies": {
+    "@babel/eslint-parser": "^7.18.2",
     "babel-plugin-styled-components": "^2.0.7",
     "gatsby": "^4.18.2",
     "gatsby-plugin-google-analytics": "^4.18.0",
@@ -26,9 +26,35 @@
     "gatsby-plugin-styled-components": "^5.18.0",
     "gatsby-source-filesystem": "^4.18.1",
     "gatsby-transformer-sharp": "^4.18.1",
+    "normalize.css": "^8.0.1",
+    "prop-types": "^15.8.1",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
     "react-helmet": "^6.1.0",
     "styled-components": "^5.3.5"
+  },
+  "devDependencies": {
+    "eslint": "^8.2.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-node": "^4.1.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-import": "^2.25.3",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.28.0",
+    "eslint-plugin-react-hooks": "^4.3.0",
+    "gatsby-plugin-eslint": "^4.0.2",
+    "gatsby-plugin-google-fonts": "^1.0.1",
+    "gatsby-plugin-react-svg": "^3.1.0",
+    "gatsby-plugin-root-import": "^2.0.8"
+  },
+  "prettier": {
+    "semi": true,
+    "trailingComma": "all",
+    "singleQuote": true,
+    "useTabs": true,
+    "tabWidth": 2,
+    "endOfLine": "auto"
   }
 }

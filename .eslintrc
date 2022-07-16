@@ -1,0 +1,54 @@
+{
+    "parser": "@babel/eslint-parser",
+    "parserOptions": {
+      "requireConfigFile": false,
+      "babelOptions": {
+        "presets": ["@babel/preset-react"]
+      }
+    },
+    "settings": {
+      "react": {
+        "version": "detect"
+      }
+    },
+    "env": {
+      "node": true,
+      "browser": true
+    },
+    "extends": [
+      "airbnb",
+      "eslint:recommended",
+      "plugin:prettier/recommended"
+    ],
+    "plugins": ["prettier"],
+    "rules": {
+      "prettier/prettier": "error",
+      "no-useless-escape": "off",
+      "import/prefer-default-export": "off",
+      "import/no-default-export": "warn",
+      "import/no-unresolved": "off",
+      "react/jsx-props-no-spreading": "off",
+      "react/function-component-definition": "off",
+      "react/button-has-type": "off",
+      "react/self-closing-comp": "off",
+      "react/prop-types": "warn",
+      "react/destructuring-assignment": "warn",
+      "no-debugger": "off",
+      "jsx-a11y/label-has-associated-control": "warn",
+      "react/require-default-props": "off"
+    },
+    "overrides": [
+      {
+        "files": ["./src/pages/*.jsx"],
+        "rules": {
+          "no-unused-expressions": "off",
+          "import/no-default-export": "off"
+        }
+      }, {
+        "files": ["gatsby-browser.js"],
+        "rules": {
+          "react/jsx-filename-extension": "off"
+        }
+      }
+     ]
+  }
