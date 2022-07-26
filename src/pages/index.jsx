@@ -7,7 +7,6 @@ import {
 	Hero,
 	HeroHeading,
 	HeroParagraph,
-	HighLightedHeading,
 	ReviewsSection,
 	ServicesSection,
 	ShowcaseGallery,
@@ -22,6 +21,7 @@ import {
 	WelcomeSectionContent,
 	WelcomeSectionImage,
 } from '../assets/styles/pages/Homepage.styles';
+import { HighlightedHeading } from '../components/HighlightedHeading/HighlightedHeading';
 
 const Homepage = ({ data }) => (
 	<>
@@ -47,7 +47,7 @@ const Homepage = ({ data }) => (
 				<WelcomeSectionImage imageSource={data.welcome.publicURL} />
 			</WelcomeSection>
 			<AdvantagesSection>
-				<HighLightedHeading>Dlaczego szukasz właśnie nas?</HighLightedHeading>
+				<HighlightedHeading>Dlaczego szukasz właśnie nas?</HighlightedHeading>
 				<StyledList>
 					<li>
 						<h3> Kompleksowa obsługa</h3>
@@ -87,7 +87,7 @@ const Homepage = ({ data }) => (
 				</ShowcaseGallery>
 			</ShowcaseSection>
 			<ServicesSection>
-				<HighLightedHeading>Twój komfort ponad wszystko</HighLightedHeading>
+				<HighlightedHeading>Twój komfort ponad wszystko</HighlightedHeading>
 				<p>
 					To, co dla innych biur nieruchomości wykracza poza zakres usług, dla
 					nas jest standardem. Wyróżnia nas bezkompromisowa troska o interes
@@ -127,7 +127,7 @@ const Homepage = ({ data }) => (
 				</StyledList>
 			</ServicesSection>
 			<TeamSection>
-				<HighLightedHeading>Poznaj nasz zespół</HighLightedHeading>
+				<HighlightedHeading>Poznaj nasz zespół</HighlightedHeading>
 				<p>
 					Dzięki doskonałej współpracy i przyjacielskiej atmosferze udało nam
 					się stworzyć zespół dokosnały.
@@ -136,7 +136,7 @@ const Homepage = ({ data }) => (
 				<TeamImage imageSource={data.team1.publicURL} alt="" />
 			</TeamSection>
 			<ReviewsSection>
-				<HighLightedHeading>Co mówią o nas nasi klienci?</HighLightedHeading>
+				<HighlightedHeading>Co mówią o nas nasi klienci?</HighlightedHeading>
 				<p>
 					Bezkompromisowo wspieramy naszych klientów a ich satysfakcja jest dla
 					nas najważniejszym celem.
@@ -162,7 +162,7 @@ const Homepage = ({ data }) => (
 				</div>
 			</ReviewsSection>
 			<ContactForm action="#">
-				<HighLightedHeading>Napisz do nas</HighLightedHeading>
+				<HighlightedHeading>Napisz do nas</HighlightedHeading>
 				<label htmlFor="email">Adres e-mail</label>
 				<input
 					type="email"

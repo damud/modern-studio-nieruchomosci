@@ -92,21 +92,6 @@ export const WelcomeSectionImage = styled.div`
 export const AdvantagesSection = styled(StyledSection)``;
 export const ServicesSection = styled(StyledSection)``;
 
-export const HighLightedHeading = styled.h2`
-	font-size: ${({ theme }) => theme.font.size.headingSmall};
-	position: relative;
-	&::before {
-		z-index: -1;
-		position: absolute;
-		content: '';
-		width: 100%;
-		height: calc(${({ theme }) => theme.font.size.headingSmall} * 1.5);
-		top: calc(-${({ theme }) => theme.font.size.headingSmall} / 6);
-		left: -50%;
-		background-color: ${({ theme }) => theme.color.beige};
-	}
-`;
-
 export const StyledList = styled.ul`
 	padding: 0;
 	list-style: none;
@@ -185,6 +170,7 @@ export const TeamImage = styled.div`
 	${({ theme }) => theme.effect.corner({ position: 'bottomRight' })};
 `;
 export const ReviewsSection = styled(StyledSection)``;
+
 export const ContactForm = styled.form`
 	display: flex;
 	flex-direction: column;
