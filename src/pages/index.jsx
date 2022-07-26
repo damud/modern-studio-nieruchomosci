@@ -31,6 +31,61 @@ const ContentWrapper = styled.div`
 	padding: 0 20px;
 `;
 
+const WelcomeSection = styled.section`
+	margin: 70px 0;
+	padding: 0 20px;
+`;
+
+const WelcomeSectionContent = styled.div`
+	background-color: ${({ theme }) => theme.color.dark};
+	padding: 30px 20px;
+	position: relative;
+
+	h2 {
+		margin: 0 0 20 px 0;
+		font-size: 2.5rem;
+		font-weight: 400;
+		color: white;
+	}
+
+	p {
+		font-size: ${({ theme }) => theme.font.size.paragraph};
+		font-weight: 300;
+		color: white;
+	}
+
+	&::after {
+		position: absolute;
+		width: 70px;
+		height: 70px;
+		content: '';
+		clip-path: polygon(0 16%, 0 0, 100% 0, 100% 100%, 84% 100%, 84% 16%);
+		background-color: ${({ theme }) => theme.color.dark};
+		right: -20px;
+		top: -20px;
+	}
+`;
+
+const WelcomeSectionImage = styled.div`
+	margin-top: 10px;
+	width: 90%;
+	height: 170px;
+	position: relative;
+	background-image: url('${({ imageSource }) => imageSource}');
+	background-repeat: no-repeat;
+	background-size: cover;
+	&::after {
+		position: absolute;
+		width: 70px;
+		height: 70px;
+		content: '';
+		clip-path: polygon(0 0, 16% 0, 16% 84%, 100% 84%, 100% 100%, 0 100%);
+		background-color: ${({ theme }) => theme.color.beige};
+		left: -20px;
+		bottom: -20px;
+	}
+`;
+
 const Homepage = ({ data }) => (
 	<main>
 		<Hero imageSource={data.hero.publicURL}>
@@ -40,8 +95,8 @@ const Homepage = ({ data }) => (
 			</HeroParagraph>
 		</Hero>
 		<ContentWrapper>
-			<div>
-				<div>
+			<WelcomeSection>
+				<WelcomeSectionContent>
 					<h2>Obsługę nieruchomości wymyśliliśmy na nowo</h2>
 					<p>
 						Modern Studio to nowoczesne biuro nieruchomości z profesjonalnym i
@@ -51,9 +106,9 @@ const Homepage = ({ data }) => (
 						Klienci wybierają nas, ponieważ zakres naszych usług wykracza poza
 						to, co jest w stanie zaoferować konkurencja.
 					</p>
-				</div>
-				<img src="#" alt="#" />
-			</div>
+				</WelcomeSectionContent>
+				<WelcomeSectionImage imageSource={data.welcome.publicURL} />
+			</WelcomeSection>
 			<div>
 				<h2>Dlaczego szukasz właśnie nas?</h2>
 				<ul>
@@ -186,6 +241,9 @@ const Homepage = ({ data }) => (
 export const query = graphql`
 	query {
 		hero: file(relativePath: { regex: "/homepage/0_hero.jpg/" }) {
+			publicURL
+		}
+		welcome: file(relativePath: { regex: "/homepage/1_welcome.jpg/" }) {
 			publicURL
 		}
 	}
