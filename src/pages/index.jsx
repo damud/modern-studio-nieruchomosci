@@ -162,15 +162,17 @@ const Homepage = ({ data }) => (
 				</div>
 			</ReviewsSection>
 			<ContactForm action="#">
-				<h2>Napisz do nas</h2>
+				<HighLightedHeading>Napisz do nas</HighLightedHeading>
+				<label htmlFor="email">Adres e-mail</label>
 				<input
 					type="email"
 					name="emial"
 					id="email"
 					placeholder="Adres e-mail"
 				/>
+				<label htmlFor="message">Treść</label>
 				<textarea name="message" id="message" placeholder="Wiadomość" />
-				<button>Wyślij</button>
+				<StyledButton>Wyślij</StyledButton>
 			</ContactForm>
 		</ContentWrapper>
 	</>

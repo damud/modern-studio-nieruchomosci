@@ -185,4 +185,26 @@ export const TeamImage = styled.div`
 	${({ theme }) => theme.effect.corner({ position: 'bottomRight' })};
 `;
 export const ReviewsSection = styled(StyledSection)``;
-export const ContactForm = styled(StyledSection)``;
+export const ContactForm = styled.form`
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 100px;
+
+	label {
+		font-family: ${({ theme }) => theme.font.family.montserrat};
+		font-weight: 300;
+		margin: 150px 0 0;
+	}
+
+	textarea {
+		min-height: 200px;
+	}
+
+	input,
+	textarea {
+		font-family: ${({ theme }) => theme.font.family.montserrat};
+		margin: 5px 0;
+		resize: none;
+		padding: 5px;
+	}
+`;
