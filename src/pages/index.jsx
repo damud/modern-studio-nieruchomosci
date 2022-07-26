@@ -1,6 +1,7 @@
 import * as React from 'react';
-import { graphql } from 'gatsby';
+import { graphql, Link } from 'gatsby';
 import styled from 'styled-components';
+import arrowIcon from 'assets/styles/arrow.svg';
 
 const Hero = styled.div`
 	width: 100%;
@@ -85,6 +86,7 @@ const WelcomeSectionImage = styled.div`
 		bottom: -20px;
 	}
 `;
+const AdvantagesSection = styled.section``;
 
 const HighLightedHeading = styled.h2`
 	font-size: ${({ theme }) => theme.font.size.headingSmall};
@@ -114,6 +116,60 @@ const StyledList = styled.ul`
 	}
 `;
 
+const StyledButton = styled.button`
+	border: 1px solid ${({ theme }) => theme.color.black};
+	background-color: transparent;
+	font-size: ${({ theme }) => theme.font.size.button};
+	font-family: ${({ theme }) => theme.font.family.montserrat};
+	padding: 10px 15px;
+	font-weight: 500;
+	text-transform: uppercase;
+	display: block;
+	margin: ${({ isCentered }) => (isCentered ? '15px auto' : '15px:0')};
+`;
+
+export const StyledLinkButton = styled(Link)`
+	font-family: ${({ theme }) => theme.font.family.montserrat};
+	font-size: ${({ theme }) => theme.font.size.paragraph};
+	color: ${({ theme }) => theme.color.dark};
+	text-decoration: underline;
+	position: relative;
+	&::after {
+		position: absolute;
+		content: '';
+		background-image: url('${arrowIcon}');
+		background-repeat: no-repeat;
+		background-size: contain;
+		background-position: 0 50%;
+		width: 20px;
+		height: 20px;
+		right: -35px;
+		top: 50%;
+		transform: translateY(-50%);
+	}
+`;
+
+const ShowcaseSection = styled.section`
+	h2 {
+		font-size: ${({ theme }) => theme.font.size.headingMobile};
+		text-align: center;
+		margin: 30px 0;
+	}
+`;
+
+const ShowcaseGallery = styled.div`
+	margin: 50px 0;
+`;
+
+const ShowcaseImage = styled.img`
+	width: 100%;
+	height: ${({ isBig }) => (isBig ? '250px' : '125px')};
+	object-fit: cover;
+	margin: 10px 0;
+`;
+
+const ServicesSection = styled.section``;
+
 const Homepage = ({ data }) => (
 	<main>
 		<Hero imageSource={data.hero.publicURL}>
@@ -137,7 +193,7 @@ const Homepage = ({ data }) => (
 				</WelcomeSectionContent>
 				<WelcomeSectionImage imageSource={data.welcome.publicURL} />
 			</WelcomeSection>
-			<div>
+			<AdvantagesSection>
 				<HighLightedHeading>Dlaczego szukasz właśnie nas?</HighLightedHeading>
 				<StyledList>
 					<li>
@@ -163,28 +219,28 @@ const Homepage = ({ data }) => (
 						</p>
 					</li>
 				</StyledList>
-			</div>
-			<div>
+			</AdvantagesSection>
+			<ShowcaseSection>
 				<h2>Oferta</h2>
 				<div>
-					<button>Bieżące oferty</button>
-					<button>Nasze realizacje</button>
+					<StyledButton isCentered>Bieżące oferty</StyledButton>
+					<StyledButton isCentered>Nasze realizacje</StyledButton>
 				</div>
-				<div>
-					<img src="#" alt="#" />
-					<img src="#" alt="#" />
-					<img src="#" alt="#" />
-					<img src="#" alt="#" />
-				</div>
-			</div>
-			<div>
+				<ShowcaseGallery>
+					<ShowcaseImage src={data.grid1.publicURL} alt="#" />
+					<ShowcaseImage isBig src={data.grid2.publicURL} alt="#" />
+					<ShowcaseImage src={data.grid3.publicURL} alt="#" />
+					<ShowcaseImage isBig src={data.grid4.publicURL} alt="#" />
+				</ShowcaseGallery>
+			</ShowcaseSection>
+			<ServicesSection>
 				<HighLightedHeading>Twój komfort ponad wszystko</HighLightedHeading>
 				<p>
 					To, co dla innych biur nieruchomości wykracza poza zakres usług, dla
 					nas jest standardem. Wyróżnia nas bezkompromisowa troska o interes
 					klienta.
 				</p>
-				<button>Sprawdź pełen zakres naszych usług</button>
+				<StyledLinkButton>Sprawdź pełen zakres naszych usług</StyledLinkButton>
 				<StyledList>
 					<li>
 						<h3>Pośrednictwo</h3>
@@ -216,17 +272,17 @@ const Homepage = ({ data }) => (
 						</p>
 					</li>
 				</StyledList>
-			</div>
+			</ServicesSection>
 			<div>
 				<HighLightedHeading>Poznaj nasz zespół</HighLightedHeading>
 				<p>
 					Dzięki doskonałej współpracy i przyjacielskiej atmosferze udało nam
 					się stworzyć zespół dokosnały.
 				</p>
-				<button>Sprawdź, kim jesteśmy</button>
+				<StyledLinkButton>Sprawdź, kim jesteśmy</StyledLinkButton>
 			</div>
 			<div>
-				<h2>Co mówią o nas nasi klienci?</h2>
+				<HighLightedHeading>Co mówią o nas nasi klienci?</HighLightedHeading>
 				<p>
 					Bezkompromisowo wspieramy naszych klientów a ich satysfakcja jest dla
 					nas najważniejszym celem.
@@ -272,6 +328,18 @@ export const query = graphql`
 			publicURL
 		}
 		welcome: file(relativePath: { regex: "/homepage/1_welcome.jpg/" }) {
+			publicURL
+		}
+		grid1: file(relativePath: { regex: "/homepage/2_grid.jpg/" }) {
+			publicURL
+		}
+		grid2: file(relativePath: { regex: "/homepage/3_grid.jpg/" }) {
+			publicURL
+		}
+		grid3: file(relativePath: { regex: "/homepage/4_grid.jpg/" }) {
+			publicURL
+		}
+		grid4: file(relativePath: { regex: "/homepage/5_grid.jpg/" }) {
 			publicURL
 		}
 	}
