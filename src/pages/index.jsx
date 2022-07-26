@@ -1,177 +1,29 @@
 import * as React from 'react';
-import { graphql, Link } from 'gatsby';
-import styled from 'styled-components';
-import arrowIcon from 'assets/styles/arrow.svg';
-
-const Hero = styled.div`
-	width: 100%;
-	height: 100vh;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	flex-direction: column;
-	background-image: url('${({ imageSource }) => imageSource}');
-	background-repeat: no-repeat;
-	background-size: cover;
-	background-position: 30%;
-	padding: 35px;
-`;
-
-const HeroHeading = styled.h1`
-	font-size: ${({ theme }) => theme.font.size.headingMobile};
-	margin: 0;
-	text-shadow: ${({ theme }) => theme.font.shadow};
-`;
-
-const HeroParagraph = styled.p`
-	font-size: ${({ theme }) => theme.font.size.paragraph};
-	text-shadow: ${({ theme }) => theme.font.shadow};
-`;
-
-const ContentWrapper = styled.div`
-	padding: 0 20px;
-`;
-
-const WelcomeSection = styled.section`
-	margin: 70px 0;
-	padding: 0 20px;
-`;
-
-const WelcomeSectionContent = styled.div`
-	background-color: ${({ theme }) => theme.color.dark};
-	padding: 30px 20px;
-	position: relative;
-
-	h2 {
-		margin: 0 0 20 px 0;
-		font-size: 2.5rem;
-		font-weight: 400;
-		color: white;
-	}
-
-	p {
-		font-size: ${({ theme }) => theme.font.size.paragraph};
-		font-weight: 300;
-		color: white;
-	}
-
-	&::after {
-		position: absolute;
-		width: 70px;
-		height: 70px;
-		content: '';
-		clip-path: polygon(0 16%, 0 0, 100% 0, 100% 100%, 84% 100%, 84% 16%);
-		background-color: ${({ theme }) => theme.color.dark};
-		right: -20px;
-		top: -20px;
-	}
-`;
-
-const WelcomeSectionImage = styled.div`
-	margin-top: 10px;
-	width: 90%;
-	height: 170px;
-	position: relative;
-	background-image: url('${({ imageSource }) => imageSource}');
-	background-repeat: no-repeat;
-	background-size: cover;
-	&::after {
-		position: absolute;
-		width: 70px;
-		height: 70px;
-		content: '';
-		clip-path: polygon(0 0, 16% 0, 16% 84%, 100% 84%, 100% 100%, 0 100%);
-		background-color: ${({ theme }) => theme.color.beige};
-		left: -20px;
-		bottom: -20px;
-	}
-`;
-const AdvantagesSection = styled.section``;
-
-const HighLightedHeading = styled.h2`
-	font-size: ${({ theme }) => theme.font.size.headingSmall};
-	position: relative;
-	&::before {
-		z-index: -1;
-		position: absolute;
-		content: '';
-		width: 100%;
-		height: calc(${({ theme }) => theme.font.size.headingSmall} * 1.5);
-		top: calc(-${({ theme }) => theme.font.size.headingSmall} / 6);
-		left: -50%;
-		background-color: ${({ theme }) => theme.color.beige};
-	}
-`;
-
-const StyledList = styled.ul`
-	padding: 0;
-	list-style: none;
-	li {
-		margin: 30px 0;
-		h3 {
-			font-family: ${({ theme }) => theme.font.family.montserrat};
-			font-weight: 700;
-			margin: 0;
-		}
-	}
-`;
-
-const StyledButton = styled.button`
-	border: 1px solid ${({ theme }) => theme.color.black};
-	background-color: transparent;
-	font-size: ${({ theme }) => theme.font.size.button};
-	font-family: ${({ theme }) => theme.font.family.montserrat};
-	padding: 10px 15px;
-	font-weight: 500;
-	text-transform: uppercase;
-	display: block;
-	margin: ${({ isCentered }) => (isCentered ? '15px auto' : '15px:0')};
-`;
-
-export const StyledLinkButton = styled(Link)`
-	font-family: ${({ theme }) => theme.font.family.montserrat};
-	font-size: ${({ theme }) => theme.font.size.paragraph};
-	color: ${({ theme }) => theme.color.dark};
-	text-decoration: underline;
-	position: relative;
-	&::after {
-		position: absolute;
-		content: '';
-		background-image: url('${arrowIcon}');
-		background-repeat: no-repeat;
-		background-size: contain;
-		background-position: 0 50%;
-		width: 20px;
-		height: 20px;
-		right: -35px;
-		top: 50%;
-		transform: translateY(-50%);
-	}
-`;
-
-const ShowcaseSection = styled.section`
-	h2 {
-		font-size: ${({ theme }) => theme.font.size.headingMobile};
-		text-align: center;
-		margin: 30px 0;
-	}
-`;
-
-const ShowcaseGallery = styled.div`
-	margin: 50px 0;
-`;
-
-const ShowcaseImage = styled.img`
-	width: 100%;
-	height: ${({ isBig }) => (isBig ? '250px' : '125px')};
-	object-fit: cover;
-	margin: 10px 0;
-`;
-
-const ServicesSection = styled.section``;
+import { graphql } from 'gatsby';
+import {
+	AdvantagesSection,
+	ContactForm,
+	ContentWrapper,
+	Hero,
+	HeroHeading,
+	HeroParagraph,
+	HighLightedHeading,
+	ReviewsSection,
+	ServicesSection,
+	ShowcaseGallery,
+	ShowcaseImage,
+	ShowcaseSection,
+	StyledButton,
+	StyledLinkButton,
+	StyledList,
+	TeamSection,
+	WelcomeSection,
+	WelcomeSectionContent,
+	WelcomeSectionImage,
+} from '../assets/styles/pages/Homepage.styles';
 
 const Homepage = ({ data }) => (
-	<main>
+	<>
 		<Hero imageSource={data.hero.publicURL}>
 			<HeroHeading>Biuro nieruchomości, którego potrzebujesz</HeroHeading>
 			<HeroParagraph>
@@ -273,15 +125,15 @@ const Homepage = ({ data }) => (
 					</li>
 				</StyledList>
 			</ServicesSection>
-			<div>
+			<TeamSection>
 				<HighLightedHeading>Poznaj nasz zespół</HighLightedHeading>
 				<p>
 					Dzięki doskonałej współpracy i przyjacielskiej atmosferze udało nam
 					się stworzyć zespół dokosnały.
 				</p>
 				<StyledLinkButton>Sprawdź, kim jesteśmy</StyledLinkButton>
-			</div>
-			<div>
+			</TeamSection>
+			<ReviewsSection>
 				<HighLightedHeading>Co mówią o nas nasi klienci?</HighLightedHeading>
 				<p>
 					Bezkompromisowo wspieramy naszych klientów a ich satysfakcja jest dla
@@ -306,8 +158,8 @@ const Homepage = ({ data }) => (
 						<p>Kamila</p>
 					</div>
 				</div>
-			</div>
-			<form action="#">
+			</ReviewsSection>
+			<ContactForm action="#">
 				<h2>Napisz do nas</h2>
 				<input
 					type="email"
@@ -317,9 +169,9 @@ const Homepage = ({ data }) => (
 				/>
 				<textarea name="message" id="message" placeholder="Wiadomość" />
 				<button>Wyślij</button>
-			</form>
+			</ContactForm>
 		</ContentWrapper>
-	</main>
+	</>
 );
 
 export const query = graphql`
