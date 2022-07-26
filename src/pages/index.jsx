@@ -86,6 +86,34 @@ const WelcomeSectionImage = styled.div`
 	}
 `;
 
+const HighLightedHeading = styled.h2`
+	font-size: ${({ theme }) => theme.font.size.headingSmall};
+	position: relative;
+	&::before {
+		z-index: -1;
+		position: absolute;
+		content: '';
+		width: 100%;
+		height: calc(${({ theme }) => theme.font.size.headingSmall} * 1.5);
+		top: calc(-${({ theme }) => theme.font.size.headingSmall} / 6);
+		left: -50%;
+		background-color: ${({ theme }) => theme.color.beige};
+	}
+`;
+
+const StyledList = styled.ul`
+	padding: 0;
+	list-style: none;
+	li {
+		margin: 30px 0;
+		h3 {
+			font-family: ${({ theme }) => theme.font.family.montserrat};
+			font-weight: 700;
+			margin: 0;
+		}
+	}
+`;
+
 const Homepage = ({ data }) => (
 	<main>
 		<Hero imageSource={data.hero.publicURL}>
@@ -110,8 +138,8 @@ const Homepage = ({ data }) => (
 				<WelcomeSectionImage imageSource={data.welcome.publicURL} />
 			</WelcomeSection>
 			<div>
-				<h2>Dlaczego szukasz właśnie nas?</h2>
-				<ul>
+				<HighLightedHeading>Dlaczego szukasz właśnie nas?</HighLightedHeading>
+				<StyledList>
 					<li>
 						<h3> Kompleksowa obsługa</h3>
 						<p>
@@ -134,7 +162,7 @@ const Homepage = ({ data }) => (
 							uzupełniamy.
 						</p>
 					</li>
-				</ul>
+				</StyledList>
 			</div>
 			<div>
 				<h2>Oferta</h2>
@@ -150,14 +178,14 @@ const Homepage = ({ data }) => (
 				</div>
 			</div>
 			<div>
-				<h2>Twój komfort ponad wszystko</h2>
+				<HighLightedHeading>Twój komfort ponad wszystko</HighLightedHeading>
 				<p>
 					To, co dla innych biur nieruchomości wykracza poza zakres usług, dla
 					nas jest standardem. Wyróżnia nas bezkompromisowa troska o interes
 					klienta.
 				</p>
 				<button>Sprawdź pełen zakres naszych usług</button>
-				<ul>
+				<StyledList>
 					<li>
 						<h3>Pośrednictwo</h3>
 						<p>
@@ -187,10 +215,10 @@ const Homepage = ({ data }) => (
 							wybierasz najlepszych deweloperów, prawników i architektów.
 						</p>
 					</li>
-				</ul>
+				</StyledList>
 			</div>
 			<div>
-				<h2>Poznaj nasz zespół</h2>
+				<HighLightedHeading>Poznaj nasz zespół</HighLightedHeading>
 				<p>
 					Dzięki doskonałej współpracy i przyjacielskiej atmosferze udało nam
 					się stworzyć zespół dokosnały.
