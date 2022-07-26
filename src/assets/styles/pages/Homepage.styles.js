@@ -31,7 +31,11 @@ export const ContentWrapper = styled.div`
 	padding: 0 20px;
 `;
 
-export const WelcomeSection = styled.section`
+const StyledSection = styled.section`
+	margin: 100px 0;
+`;
+
+export const WelcomeSection = styled(StyledSection)`
 	margin: 70px 0;
 	padding: 0 20px;
 `;
@@ -85,8 +89,8 @@ export const WelcomeSectionImage = styled.div`
 		bottom: -20px;
 	}
 `;
-export const AdvantagesSection = styled.section``;
-export const ServicesSection = styled.section``;
+export const AdvantagesSection = styled(StyledSection)``;
+export const ServicesSection = styled(StyledSection)``;
 
 export const HighLightedHeading = styled.h2`
 	font-size: ${({ theme }) => theme.font.size.headingSmall};
@@ -149,7 +153,7 @@ export const StyledLinkButton = styled(Link)`
 	}
 `;
 
-export const ShowcaseSection = styled.section`
+export const ShowcaseSection = styled(StyledSection)`
 	h2 {
 		font-size: ${({ theme }) => theme.font.size.headingMobile};
 		text-align: center;
@@ -168,7 +172,7 @@ export const ShowcaseImage = styled.img`
 	margin: 10px 0;
 `;
 
-export const TeamSection = styled.section``;
+export const TeamSection = styled(StyledSection)``;
 
 export const TeamImage = styled.div`
 	margin-top: 30px;
@@ -180,5 +184,5 @@ export const TeamImage = styled.div`
 	background-size: cover;
 	${({ theme }) => theme.effect.corner({ position: 'bottomRight' })};
 `;
-export const ReviewsSection = styled.section``;
-export const ContactForm = styled.section``;
+export const ReviewsSection = styled(StyledSection)``;
+export const ContactForm = styled(StyledSection)``;
