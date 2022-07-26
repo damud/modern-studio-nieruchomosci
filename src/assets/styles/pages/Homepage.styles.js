@@ -86,6 +86,7 @@ export const WelcomeSectionImage = styled.div`
 	}
 `;
 export const AdvantagesSection = styled.section``;
+export const ServicesSection = styled.section``;
 
 export const HighLightedHeading = styled.h2`
 	font-size: ${({ theme }) => theme.font.size.headingSmall};
@@ -167,7 +168,17 @@ export const ShowcaseImage = styled.img`
 	margin: 10px 0;
 `;
 
-export const ServicesSection = styled.section``;
 export const TeamSection = styled.section``;
+
+export const TeamImage = styled.div`
+	margin-top: 30px;
+	width: 90%;
+	height: 300px;
+	position: relative;
+	background-image: url('${({ imageSource }) => imageSource}');
+	background-repeat: no-repeat;
+	background-size: cover;
+	${({ theme }) => theme.effect.corner({ position: 'bottomRight' })};
+`;
 export const ReviewsSection = styled.section``;
 export const ContactForm = styled.section``;

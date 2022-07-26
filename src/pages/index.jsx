@@ -16,6 +16,7 @@ import {
 	StyledButton,
 	StyledLinkButton,
 	StyledList,
+	TeamImage,
 	TeamSection,
 	WelcomeSection,
 	WelcomeSectionContent,
@@ -132,6 +133,7 @@ const Homepage = ({ data }) => (
 					się stworzyć zespół dokosnały.
 				</p>
 				<StyledLinkButton>Sprawdź, kim jesteśmy</StyledLinkButton>
+				<TeamImage imageSource={data.team1.publicURL} alt="" />
 			</TeamSection>
 			<ReviewsSection>
 				<HighLightedHeading>Co mówią o nas nasi klienci?</HighLightedHeading>
@@ -192,6 +194,12 @@ export const query = graphql`
 			publicURL
 		}
 		grid4: file(relativePath: { regex: "/homepage/5_grid.jpg/" }) {
+			publicURL
+		}
+		team1: file(relativePath: { regex: "/homepage/6_team.jpg/" }) {
+			publicURL
+		}
+		team2: file(relativePath: { regex: "/homepage/7_team.jpg/" }) {
 			publicURL
 		}
 	}
