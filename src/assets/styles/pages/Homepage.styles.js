@@ -30,7 +30,7 @@ export const StyledButton = styled.button`
 	font-weight: 500;
 	text-transform: uppercase;
 	display: block;
-	margin: ${({ isCentered }) => (isCentered ? '15px auto' : '15px:0')};
+	margin: 8px 15px;
 `;
 
 export const StyledLinkButton = styled(Link)`
@@ -198,20 +198,32 @@ export const ShowcaseSection = styled(StyledSection)`
 	h2 {
 		font-size: ${({ theme }) => theme.font.size.headingMobile};
 		text-align: center;
-		margin: 30px 0;
+		margin: 30px 0 10px;
+	}
+	div:nth-child(2) {
+		display: flex;
+		flex-direction: column;
+	}
+	${({ theme }) => theme.mq.desktop} {
+		margin-top: -60px;
 
-		${({ theme }) => theme.mq.desktop} {
-			h2 {
-				margin: 0;
-			}
+		h2 {
+			margin: 0 0 30px;
+		}
+
+		div:nth-child(2) {
+			display: flex;
+			flex-direction: row;
+			justify-content: center;
 		}
 	}
 `;
 
 export const ShowcaseGallery = styled.div`
-	margin: 50px 0;
+	margin: 50px 0 50px;
 
 	${({ theme }) => theme.mq.desktop} {
+		margin: 50px 0 50px;
 		display: grid;
 		grid-template-columns: 1fr 1fr;
 		grid-template-rows: 1fr 1fr 1fr;

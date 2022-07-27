@@ -77,8 +77,8 @@ const Homepage = ({ data }) => (
 			<ShowcaseSection>
 				<h2>Oferta</h2>
 				<div>
-					<StyledButton isCentered>Bieżące oferty</StyledButton>
-					<StyledButton isCentered>Nasze realizacje</StyledButton>
+					<StyledButton>Bieżące oferty</StyledButton>
+					<StyledButton>Nasze realizacje</StyledButton>
 				</div>
 				<ShowcaseGallery>
 					<ShowcaseImage src={data.grid1.publicURL} alt="#" />
