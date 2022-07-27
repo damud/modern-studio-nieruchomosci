@@ -110,11 +110,15 @@ export const WelcomeSection = styled(StyledSection)`
 	padding: 0 20px;
 
 	${({ theme }) => theme.mq.desktop} {
-		margin-bottom: 180px;
 		width: 100%;
+		margin: 180px 0 150px;
 		position: relative;
 		display: flex;
 		justify-content: space-between;
+	}
+
+	${({ theme }) => theme.mq.bigDesktop} {
+		margin: 180px 0 100px;
 	}
 `;
 
@@ -122,7 +126,6 @@ export const WelcomeSectionContent = styled.div`
 	background-color: ${({ theme }) => theme.color.dark};
 	padding: 30px 20px;
 	position: relative;
-
 	h2 {
 		margin: 0 0 20 px 0;
 		font-size: 2.5rem;
@@ -149,7 +152,7 @@ export const WelcomeSectionContent = styled.div`
 	${({ theme }) => theme.mq.desktop} {
 		position: absolute;
 		width: 55%;
-		top: 10vh;
+		top: 80px;
 		height: auto;
 		padding: 50px;
 		right: 20px;
@@ -157,6 +160,10 @@ export const WelcomeSectionContent = styled.div`
 		h2 {
 			font-size: ${({ theme }) => theme.font.size.headingSmall};
 		}
+	}
+
+	${({ theme }) => theme.mq.bigDesktop} {
+		top: 130px;
 	}
 `;
 
@@ -168,6 +175,7 @@ export const WelcomeSectionImage = styled.div`
 	background-image: url('${({ imageSource }) => imageSource}');
 	background-repeat: no-repeat;
 	background-size: cover;
+	background-position: 0 80%;
 	&::after {
 		position: absolute;
 		width: 70px;
@@ -180,8 +188,8 @@ export const WelcomeSectionImage = styled.div`
 	}
 	${({ theme }) => theme.mq.desktop} {
 		z-index: -1;
-		left: 0;
-		height: 400px;
+		top: -80px;
+		height: 500px;
 		width: 80%;
 	}
 `;
