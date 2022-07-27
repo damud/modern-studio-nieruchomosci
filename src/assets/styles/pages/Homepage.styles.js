@@ -47,7 +47,7 @@ const StyledSection = styled.section`
 	margin: 100px 0;
 
 	${({ theme }) => theme.mq.desktop} {
-		margin: 50px 0 150px;
+		margin: 10 0px 0;
 	}
 `;
 
@@ -55,6 +55,7 @@ export const WelcomeSection = styled(StyledSection)`
 	padding: 0 20px;
 
 	${({ theme }) => theme.mq.desktop} {
+		margin-bottom: 180px;
 		width: 100%;
 		position: relative;
 		display: flex;
@@ -195,11 +196,57 @@ export const ShowcaseSection = styled(StyledSection)`
 		font-size: ${({ theme }) => theme.font.size.headingMobile};
 		text-align: center;
 		margin: 30px 0;
+
+		${({ theme }) => theme.mq.desktop} {
+			h2 {
+				margin: 0;
+			}
+		}
 	}
 `;
 
 export const ShowcaseGallery = styled.div`
 	margin: 50px 0;
+
+	${({ theme }) => theme.mq.desktop} {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		grid-template-rows: 1fr 1fr 1fr;
+		grid-gap: 25px;
+		position: relative;
+
+		${({ theme }) =>
+			theme.effect.corner({
+				position: 'topRight',
+				distance: '30px',
+				size: '80px',
+				pseudoelement: 'after',
+			})};
+		${({ theme }) =>
+			theme.effect.corner({
+				position: 'bottomLeft',
+				distance: '30px',
+				size: '80px',
+				pseudoelement: 'before',
+				color: theme.color.beige,
+			})};
+
+		img:nth-child(1) {
+			grid-row: 1/2;
+		}
+
+		img:nth-child(2) {
+			grid-row: 1/3;
+		}
+
+		img:nth-child(3) {
+			grid-row: 2/4;
+		}
+
+		img:nth-child(4) {
+			grid-row: 3/4;
+		}
+	}
 `;
 
 export const ShowcaseImage = styled.img`
@@ -207,6 +254,11 @@ export const ShowcaseImage = styled.img`
 	height: ${({ isBig }) => (isBig ? '250px' : '125px')};
 	object-fit: cover;
 	margin: 10px 0;
+
+	${({ theme }) => theme.mq.desktop} {
+		height: 100%;
+		margin: 0;
+	}
 `;
 
 export const TeamSection = styled(StyledSection)``;
