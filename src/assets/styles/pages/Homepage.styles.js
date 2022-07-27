@@ -351,7 +351,40 @@ export const TeamSection = styled(StyledSection)`
 	}
 `;
 
-export const ReviewsSection = styled(StyledSection)``;
+export const ReviewsSection = styled(StyledSection)`
+	${({ theme }) => theme.mq.desktop} {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		grid-gap: 120px;
+
+		div:first-child {
+			grid-row: 1 / 1;
+			grid-column: 2 / 3;
+			align-self: center;
+
+			h2 {
+				max-width: 300px;
+				margin: 0;
+			}
+		}
+
+		div:last-child {
+			grid-row: 1 / 1;
+			grid-column: 1 / 2;
+		}
+	}
+`;
+
+export const StyledReview = styled.div`
+	border: 1px solid ${({ theme }) => theme.color.steel};
+	padding: 40px 40px 20px;
+	margin: 30px 0;
+
+	p:last-child {
+		margin-bottom: 30px;
+		font-weight: 700;
+	}
+`;
 
 export const ContactForm = styled.form`
 	display: flex;
