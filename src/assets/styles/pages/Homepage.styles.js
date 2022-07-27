@@ -2,6 +2,61 @@ import styled from 'styled-components';
 import { Link } from 'gatsby';
 import arrowIcon from 'assets/styles/arrow.svg';
 
+export const StyledList = styled.ul`
+	padding: 0;
+	list-style: none;
+	li {
+		margin: 30px 0;
+		h3 {
+			font-family: ${({ theme }) => theme.font.family.montserrat};
+			font-weight: 700;
+			margin: 0;
+		}
+	}
+
+	${({ theme }) => theme.mq.desktop} {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		grid-gap: 50px;
+	}
+`;
+
+export const StyledButton = styled.button`
+	border: 1px solid ${({ theme }) => theme.color.black};
+	background-color: transparent;
+	font-size: ${({ theme }) => theme.font.size.button};
+	font-family: ${({ theme }) => theme.font.family.montserrat};
+	padding: 10px 15px;
+	font-weight: 500;
+	text-transform: uppercase;
+	display: block;
+	margin: ${({ isCentered }) => (isCentered ? '15px auto' : '15px:0')};
+`;
+
+export const StyledLinkButton = styled(Link)`
+	font-family: ${({ theme }) => theme.font.family.montserrat};
+	font-size: ${({ theme }) => theme.font.size.paragraph};
+	color: ${({ theme }) => theme.color.dark};
+	text-decoration: underline;
+	display: inline-block;
+	position: relative;
+	margin: 5px 0 10px;
+
+	&::after {
+		position: absolute;
+		content: '';
+		background-image: url('${arrowIcon}');
+		background-repeat: no-repeat;
+		background-size: contain;
+		background-position: 0 50%;
+		width: 20px;
+		height: 20px;
+		right: -35px;
+		top: 50%;
+		transform: translateY(-50%);
+	}
+`;
+
 export const Hero = styled.div`
 	width: 100%;
 	height: 100vh;
@@ -130,64 +185,12 @@ export const WelcomeSectionImage = styled.div`
 		width: 80%;
 	}
 `;
+
 export const AdvantagesSection = styled(StyledSection)`
 	${({ theme }) => theme.mq.desktop} {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-	}
-`;
-export const ServicesSection = styled(StyledSection)``;
-
-export const StyledList = styled.ul`
-	padding: 0;
-	list-style: none;
-	li {
-		margin: 30px 0;
-		h3 {
-			font-family: ${({ theme }) => theme.font.family.montserrat};
-			font-weight: 700;
-			margin: 0;
-		}
-	}
-
-	${({ theme }) => theme.mq.desktop} {
-		display: grid;
-		grid-template-columns: repeat(3, 1fr);
-		grid-gap: 50px;
-	}
-`;
-
-export const StyledButton = styled.button`
-	border: 1px solid ${({ theme }) => theme.color.black};
-	background-color: transparent;
-	font-size: ${({ theme }) => theme.font.size.button};
-	font-family: ${({ theme }) => theme.font.family.montserrat};
-	padding: 10px 15px;
-	font-weight: 500;
-	text-transform: uppercase;
-	display: block;
-	margin: ${({ isCentered }) => (isCentered ? '15px auto' : '15px:0')};
-`;
-
-export const StyledLinkButton = styled(Link)`
-	font-family: ${({ theme }) => theme.font.family.montserrat};
-	font-size: ${({ theme }) => theme.font.size.paragraph};
-	color: ${({ theme }) => theme.color.dark};
-	text-decoration: underline;
-	position: relative;
-	&::after {
-		position: absolute;
-		content: '';
-		background-image: url('${arrowIcon}');
-		background-repeat: no-repeat;
-		background-size: contain;
-		background-position: 0 50%;
-		width: 20px;
-		height: 20px;
-		right: -35px;
-		top: 50%;
-		transform: translateY(-50%);
 	}
 `;
 
@@ -258,6 +261,25 @@ export const ShowcaseImage = styled.img`
 	${({ theme }) => theme.mq.desktop} {
 		height: 100%;
 		margin: 0;
+	}
+`;
+
+export const ServicesSection = styled(StyledSection)`
+	${({ theme }) => theme.mq.desktop} {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		grid-gap: 0 50px;
+
+		& > p {
+			align-self: center;
+			max-width: 450px;
+		}
+		${StyledList} {
+			display: grid;
+			grid-template-columns: repeat(4, 1fr);
+			grid-row: 2/2;
+			grid-column: 1/3;
+		}
 	}
 `;
 

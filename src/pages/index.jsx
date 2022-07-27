@@ -87,13 +87,17 @@ const Homepage = ({ data }) => (
 				</ShowcaseGallery>
 			</ShowcaseSection>
 			<ServicesSection>
-				<HighlightedHeading>Twój komfort ponad wszystko</HighlightedHeading>
+				<div>
+					<HighlightedHeading>Twój komfort ponad wszystko</HighlightedHeading>
+					<StyledLinkButton>
+						Sprawdź pełen zakres naszych usług
+					</StyledLinkButton>
+				</div>
 				<p>
 					To, co dla innych biur nieruchomości wykracza poza zakres usług, dla
 					nas jest standardem. Wyróżnia nas bezkompromisowa troska o interes
 					klienta.
 				</p>
-				<StyledLinkButton>Sprawdź pełen zakres naszych usług</StyledLinkButton>
 				<StyledList>
 					<li>
 						<h3>Pośrednictwo</h3>
