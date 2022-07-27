@@ -20,6 +20,12 @@ export const HeroHeading = styled.h1`
 	font-size: ${({ theme }) => theme.font.size.headingMobile};
 	margin: 0;
 	text-shadow: ${({ theme }) => theme.font.shadow};
+
+	${({ theme }) => theme.mq.desktop} {
+		font-size: ${({ theme }) => theme.font.size.heading};
+		max-width: 500px;
+		text-align: center;
+	}
 `;
 
 export const HeroParagraph = styled.p`
@@ -29,15 +35,31 @@ export const HeroParagraph = styled.p`
 
 export const ContentWrapper = styled.div`
 	padding: 0 20px;
+
+	${({ theme }) => theme.mq.desktop} {
+		max-width: 1600px;
+		margin: 0 auto;
+		padding: 0 100px;
+	}
 `;
 
 const StyledSection = styled.section`
 	margin: 100px 0;
+
+	${({ theme }) => theme.mq.desktop} {
+		margin: 50px 0 150px;
+	}
 `;
 
 export const WelcomeSection = styled(StyledSection)`
-	margin: 70px 0;
 	padding: 0 20px;
+
+	${({ theme }) => theme.mq.desktop} {
+		width: 100%;
+		position: relative;
+		display: flex;
+		justify-content: space-between;
+	}
 `;
 
 export const WelcomeSectionContent = styled.div`
@@ -68,6 +90,18 @@ export const WelcomeSectionContent = styled.div`
 		right: -20px;
 		top: -20px;
 	}
+	${({ theme }) => theme.mq.desktop} {
+		position: absolute;
+		width: 55%;
+		top: 10vh;
+		height: auto;
+		padding: 50px;
+		right: 20px;
+
+		h2 {
+			font-size: ${({ theme }) => theme.font.size.headingSmall};
+		}
+	}
 `;
 
 export const WelcomeSectionImage = styled.div`
@@ -87,6 +121,12 @@ export const WelcomeSectionImage = styled.div`
 		background-color: ${({ theme }) => theme.color.beige};
 		left: -20px;
 		bottom: -20px;
+	}
+	${({ theme }) => theme.mq.desktop} {
+		z-index: -1;
+		left: 0;
+		height: 400px;
+		width: 80%;
 	}
 `;
 export const AdvantagesSection = styled(StyledSection)``;
@@ -179,7 +219,7 @@ export const ContactForm = styled.form`
 	label {
 		font-family: ${({ theme }) => theme.font.family.montserrat};
 		font-weight: 300;
-		margin: 150px 0 0;
+		margin: 40px 0 0;
 	}
 
 	textarea {
