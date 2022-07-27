@@ -129,7 +129,13 @@ export const WelcomeSectionImage = styled.div`
 		width: 80%;
 	}
 `;
-export const AdvantagesSection = styled(StyledSection)``;
+export const AdvantagesSection = styled(StyledSection)`
+	${({ theme }) => theme.mq.desktop} {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+`;
 export const ServicesSection = styled(StyledSection)``;
 
 export const StyledList = styled.ul`
@@ -142,6 +148,12 @@ export const StyledList = styled.ul`
 			font-weight: 700;
 			margin: 0;
 		}
+	}
+
+	${({ theme }) => theme.mq.desktop} {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		grid-gap: 50px;
 	}
 `;
 
