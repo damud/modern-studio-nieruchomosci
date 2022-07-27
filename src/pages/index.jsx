@@ -131,13 +131,16 @@ const Homepage = ({ data }) => (
 				</StyledList>
 			</ServicesSection>
 			<TeamSection>
-				<HighlightedHeading>Poznaj nasz zespół</HighlightedHeading>
-				<p>
-					Dzięki doskonałej współpracy i przyjacielskiej atmosferze udało nam
-					się stworzyć zespół dokosnały.
-				</p>
-				<StyledLinkButton>Sprawdź, kim jesteśmy</StyledLinkButton>
+				<div>
+					<HighlightedHeading>Poznaj nasz zespół</HighlightedHeading>
+					<p>
+						Dzięki doskonałej współpracy i przyjacielskiej atmosferze udało nam
+						się stworzyć zespół dokosnały.
+					</p>
+					<StyledLinkButton>Sprawdź, kim jesteśmy</StyledLinkButton>
+				</div>
 				<TeamImage imageSource={data.team1.publicURL} alt="" />
+				<TeamImage imageSource={data.team2.publicURL} alt="" />
 			</TeamSection>
 			<ReviewsSection>
 				<HighlightedHeading>Co mówią o nas nasi klienci?</HighlightedHeading>

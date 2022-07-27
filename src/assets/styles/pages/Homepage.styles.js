@@ -283,8 +283,6 @@ export const ServicesSection = styled(StyledSection)`
 	}
 `;
 
-export const TeamSection = styled(StyledSection)``;
-
 export const TeamImage = styled.div`
 	margin-top: 30px;
 	width: 90%;
@@ -293,8 +291,66 @@ export const TeamImage = styled.div`
 	background-image: url('${({ imageSource }) => imageSource}');
 	background-repeat: no-repeat;
 	background-size: cover;
-	${({ theme }) => theme.effect.corner({ position: 'bottomRight' })};
+	${({ theme }) => theme.effect.corner({ position: 'bottomLeft' })};
 `;
+
+export const TeamSection = styled(StyledSection)`
+	${TeamImage}:last-child {
+		display: none;
+	}
+
+	${({ theme }) => theme.mq.desktop} {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		grid-template-rows: 1fr 1fr;
+		grid-gap: 50px;
+
+		div:nth-child(1) {
+			grid-column: 1 / 1;
+		}
+
+		${TeamImage} {
+			margin: 0;
+		}
+
+		${TeamImage}:nth-child(2) {
+			grid-column: 1 / 2;
+			grid-row: 2 / 3;
+			width: 50%;
+			justify-self: end;
+			${({ theme }) =>
+				theme.effect.corner({
+					position: 'bottomLeft',
+					size: '100px',
+					distance: '30px',
+				})};
+		}
+
+		${TeamImage}:last-child {
+			height: 100%;
+			grid-row: 1 / 3;
+			grid-column: 2 / 3;
+			display: block;
+			${({ theme }) =>
+				theme.effect.corner({
+					position: 'topRight',
+					pseudoelement: 'before',
+					color: theme.color.beige,
+					size: '100px',
+					distance: '30px',
+				})};
+			${({ theme }) =>
+				theme.effect.corner({
+					position: 'bottomLeft',
+					pseudoelement: 'after',
+					color: theme.color.beige,
+					size: '0px',
+					distance: '0px',
+				})};
+		}
+	}
+`;
+
 export const ReviewsSection = styled(StyledSection)``;
 
 export const ContactForm = styled.form`
