@@ -393,12 +393,8 @@ export const ContactForm = styled.form`
 
 	label {
 		font-family: ${({ theme }) => theme.font.family.montserrat};
-		font-weight: 300;
-		margin: 40px 0 0;
-	}
-
-	textarea {
-		min-height: 200px;
+		font-weight: 500;
+		margin: 15px 0 0;
 	}
 
 	input,
@@ -407,5 +403,19 @@ export const ContactForm = styled.form`
 		margin: 5px 0;
 		resize: none;
 		padding: 5px;
+	}
+
+	textarea {
+		min-height: 200px;
+	}
+
+	${({ theme }) => theme.mq.desktop} {
+		max-width: 400px;
+		margin: 0 auto 100px;
+
+		h2 {
+			max-width: 300px;
+			margin: 30px auto;
+		}
 	}
 `;
