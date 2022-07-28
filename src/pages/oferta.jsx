@@ -1,12 +1,27 @@
 import React from 'react';
 import { graphql } from 'gatsby';
+import styled from 'styled-components';
 import { HighlightedHeading } from '../components/HighlightedHeading/HighlightedHeading';
 import { ContentWrapper } from '../components/ContentWrapper/ContentWrapper.styles';
 
+const Address = styled.p`
+	font-weight: 700;
+	position: relative;
+
+	&::after {
+		content: '';
+		position: absolute;
+		width: 40%;
+		height: 1px;
+		background-color: black;
+		bottom: -10px;
+		left: 0;
+	}
+`;
 const Oferta = ({ data }) => (
 	<ContentWrapper isSubpage>
 		<div>
-			<p>Marynarska 21</p>
+			<Address>Marynarska 21</Address>
 			<HighlightedHeading>
 				Magiczna przestrzeń dla dużej rodziny
 			</HighlightedHeading>
