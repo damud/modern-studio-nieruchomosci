@@ -62,20 +62,83 @@ const ContactDetails = styled.div`
 	}
 `;
 
+const Gallery = styled.div`
+	width: 100%;
+
+	img {
+		width: 100%;
+		max-height: 400px;
+	}
+`;
+
+const OfferDescription = styled.p`
+	position: relative;
+
+	${({ theme }) => theme.mq.desktop} {
+		top: -60px;
+	}
+
+	${({ theme }) => theme.mq.bigDesktop} {
+		top: -70px;
+	}
+
+	${({ theme }) => theme.mq.huge} {
+		top: -90px;
+	}
+`;
+
+const OfferTitle = styled.div``;
+
+const StyledContentWrapper = styled(ContentWrapper)`
+	display: grid;
+	grid-template-columns: 1fr;
+
+	${({ theme }) => theme.mq.desktop} {
+		grid-template-columns: repeat(2, 1fr);
+		grid-gap: 40px;
+
+		${Gallery} {
+			grid-row: 1 / 2;
+			grid-column: 1 / 3;
+		}
+
+		${OfferTitle} {
+			grid-column: 1 / 2;
+			grid-row: 2 / 3;
+		}
+		${OfferDescription} {
+			grid-column: 1 / 2;
+			grid-row: 3 / 4;
+		}
+
+		${OfferDetailsList} {
+			grid-column: 2 / 3;
+			grid-row: 2 / 4;
+		}
+
+		${ContactDetails} {
+			grid-column: 1 / 2;
+			grid-row: 4 / 5;
+		}
+	}
+`;
+
 const Oferta = ({ data }) => (
-	<ContentWrapper isSubpage>
-		<div>
+	<StyledContentWrapper isSubpage>
+		<OfferTitle>
 			<Address>Marynarska 21</Address>
 			<HighlightedHeading>
 				Magiczna przestrzeń dla dużej rodziny
 			</HighlightedHeading>
+		</OfferTitle>
+		<Gallery>
 			<img src={data.oferta.publicURL} alt="" />
-			<p>
-				Pomimo braku dostępu do morza w Poznaniu, jak widać za oknem, dla nas
-				nie ma rzeczy niemożliwych. Wyjątkowe mieszkanie z widokiem, którego nie
-				da się zapomnieć.
-			</p>
-		</div>
+		</Gallery>
+		<OfferDescription>
+			Pomimo braku dostępu do morza w Poznaniu, jak widać za oknem, dla nas nie
+			ma rzeczy niemożliwych. Wyjątkowe mieszkanie z widokiem, którego nie da
+			się zapomnieć.
+		</OfferDescription>
 		<OfferDetailsList>
 			<li>
 				<BuildingTypeIcon />
@@ -123,7 +186,7 @@ const Oferta = ({ data }) => (
 				<p>730 026 439</p>
 			</div>
 		</ContactDetails>
-	</ContentWrapper>
+	</StyledContentWrapper>
 );
 
 export const query = graphql`
