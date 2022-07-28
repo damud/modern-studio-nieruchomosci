@@ -23,12 +23,41 @@ const ThumbnailImage = styled.img`
 	z-index: -1;
 `;
 
+const ThumbnailInfo = styled.div`
+	width: 100%;
+	padding: 20px;
+
+	p:first-child {
+		font-size: ${({ theme }) => theme.font.size.thumbnailSmall};
+		font-weight: 700;
+		text-transform: uppercase;
+		color: white;
+		position: relative;
+	}
+	p:first-child::after {
+		content: '';
+		position: absolute;
+		width: 40%;
+		height: 1px;
+		background-color: white;
+		bottom: -10px;
+		left: 0;
+	}
+	p:last-child {
+		font-size: ${({ theme }) => theme.font.size.thumbnailSmall};
+		font-weight: 700;
+		color: white;
+	}
+`;
+
 export const Thumbnail = ({ imageSource }) => {
 	return (
 		<ThumbnailWarpper>
 			<ThumbnailImage src={imageSource} alt="" />
-			<p>Polna 20</p>
-			<p>Nowoczesny apartament z klasą</p>
+			<ThumbnailInfo>
+				<p>Polna 20</p>
+				<p>Nowoczesny apartament z klasą</p>
+			</ThumbnailInfo>
 		</ThumbnailWarpper>
 	);
 };
