@@ -1,6 +1,11 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import styled from 'styled-components';
+import AreaIcon from 'assets/icons-components/area.svg';
+import AvailabilityIcon from 'assets/icons-components/availability.svg';
+import OfferTypeIcon from 'assets/icons-components/offer-type.svg';
+import RoomsIcon from 'assets/icons-components/rooms.svg';
+import BuildingTypeIcon from 'assets/icons-components/building-type.svg';
 import { HighlightedHeading } from '../components/HighlightedHeading/HighlightedHeading';
 import { ContentWrapper } from '../components/ContentWrapper/ContentWrapper.styles';
 
@@ -18,6 +23,26 @@ const Address = styled.p`
 		left: 0;
 	}
 `;
+
+const OfferDetailsList = styled.ul`
+	list-style: none;
+	padding: 0;
+	margin: 50px 0;
+
+	li {
+		display: flex;
+		margin: 20px 0;
+
+		p {
+			margin: 4px 10px;
+		}
+
+		p:first-child {
+			font-weight: 700;
+		}
+	}
+`;
+
 const Oferta = ({ data }) => (
 	<ContentWrapper isSubpage>
 		<div>
@@ -32,13 +57,44 @@ const Oferta = ({ data }) => (
 				da się zapomnieć.
 			</p>
 		</div>
-		<ul>
-			<li>Typ budynku</li>
-			<li>Pomieszczenia</li>
-			<li>Dostępność</li>
-			<li>Powierzchnia</li>
-			<li>Rodzaj oferty</li>
-		</ul>
+		<OfferDetailsList>
+			<li>
+				<BuildingTypeIcon />
+				<div>
+					<p>Typ budynku</p>
+					<p>Blok</p>
+				</div>
+			</li>
+
+			<li>
+				<RoomsIcon />
+				<div>
+					<p>Pomieszczenia</p>
+					<p>4 pokoje / 2 łazienki</p>
+				</div>
+			</li>
+			<li>
+				<AvailabilityIcon />
+				<div>
+					<p>Dostępność</p>
+					<p>Styczeń 2022</p>
+				</div>
+			</li>
+			<li>
+				<AreaIcon />
+				<div>
+					<p>Powierzchnia</p>
+					<p>95m2</p>
+				</div>
+			</li>
+			<li>
+				<OfferTypeIcon />
+				<div>
+					<p>Rodzaj oferty</p>
+					<p>wynajem</p>
+				</div>
+			</li>
+		</OfferDetailsList>
 		<div>
 			<img src={data.avatar.publicURL} alt="" />
 			<div>
