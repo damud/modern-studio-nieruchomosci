@@ -3,7 +3,6 @@ import { graphql } from 'gatsby';
 import {
 	AdvantagesSection,
 	ContactForm,
-	ContentWrapper,
 	Hero,
 	HeroHeading,
 	HeroParagraph,
@@ -23,6 +22,7 @@ import {
 	WelcomeSectionImage,
 } from '../assets/styles/pages/Homepage.styles';
 import { HighlightedHeading } from '../components/HighlightedHeading/HighlightedHeading';
+import { ContentWrapper } from '../components/ContentWrapper/ContentWrapper.styles';
 
 const Homepage = ({ data }) => (
 	<>

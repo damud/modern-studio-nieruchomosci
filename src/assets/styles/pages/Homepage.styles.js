@@ -88,16 +88,6 @@ export const HeroParagraph = styled.p`
 	text-shadow: ${({ theme }) => theme.font.shadow};
 `;
 
-export const ContentWrapper = styled.div`
-	padding: 0 20px;
-
-	${({ theme }) => theme.mq.desktop} {
-		max-width: 1600px;
-		margin: 0 auto;
-		padding: 0 100px;
-	}
-`;
-
 const StyledSection = styled.section`
 	margin: 100px 0;
 
