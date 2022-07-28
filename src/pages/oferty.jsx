@@ -6,7 +6,9 @@ import { ContentWrapper } from '../components/ContentWrapper/ContentWrapper.styl
 
 const ThumbnailWarpper = styled.div`
 	width: 100%;
-	height: 450px;
+	height: 30vw;
+	min-height: 450px;
+	max-width: 600px;
 	position: relative;
 	display: flex;
 	align-items: flex-end;
@@ -61,16 +63,76 @@ export const Thumbnail = ({ imageSource }) => {
 		</ThumbnailWarpper>
 	);
 };
+const Welcome = styled.div`
+	${({ theme }) => theme.mq.desktop} {
+		text-align: center;
+		max-width: 500px;
+		margin: 0 auto 40px;
+	}
+`;
+
+const FiltersList = styled.ul`
+	margin: 0 0 50px;
+	padding: 0;
+	display: flex;
+	flex-direction: column;
+	list-style: none;
+	width: 100%;
+	justify-content: flex-start;
+
+	li {
+		padding: 10px 0;
+		font-weight: 700;
+	}
+	li:first-child {
+		text-decoration: underline;
+	}
+
+	${({ theme }) => theme.mq.desktop} {
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
+		li {
+			padding: 20px 35px;
+		}
+	}
+`;
+
+const Gallery = styled.div`
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-gap: 50px;
+
+	${({ theme }) => theme.mq.tablet} {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	${({ theme }) => theme.mq.desktop} {
+		grid-template-columns: repeat(3, 1fr);
+	}
+`;
 
 const Oferty = ({ data }) => (
 	<ContentWrapper isSubpage>
-		<HighlightedHeading>Nasza oferta</HighlightedHeading>
-		<p>
-			Nieustannie poszukujemy nowych ofert nieruchomości. Wybierz typ
-			nieruchomości, który Cię interesuje.
-		</p>
-
-		<Thumbnail imageSource={data.thumbnail.publicURL} />
+		<Welcome>
+			<HighlightedHeading>Nasza oferta</HighlightedHeading>
+			<p>
+				Nieustannie poszukujemy nowych ofert nieruchomości. Wybierz typ
+				nieruchomości, który Cię interesuje.
+			</p>
+		</Welcome>
+		<FiltersList>
+			<li>Mieszkanie</li>
+			<li>Dom</li>
+			<li>Działka</li>
+		</FiltersList>
+		<Gallery>
+			<Thumbnail imageSource={data.thumbnail.publicURL} />
+			<Thumbnail imageSource={data.thumbnail.publicURL} />
+			<Thumbnail imageSource={data.thumbnail.publicURL} />
+			<Thumbnail imageSource={data.thumbnail.publicURL} />
+			<Thumbnail imageSource={data.thumbnail.publicURL} />
+		</Gallery>
 	</ContentWrapper>
 );
 

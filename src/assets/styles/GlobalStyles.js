@@ -22,7 +22,7 @@ export const GlobalStyle = createGlobalStyle`
     line-height: 1.2;
   }
   
-  p, button {
+  p, li {
     font-family: "Montserrat", sans-serif;
     font-weight: 400;
     line-height: 1.5;
