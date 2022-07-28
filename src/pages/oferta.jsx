@@ -43,6 +43,25 @@ const OfferDetailsList = styled.ul`
 	}
 `;
 
+const ContactDetails = styled.div`
+	display: flex;
+	margin-bottom: 50px;
+
+	img {
+		width: 100px;
+		height: 100px;
+		margin-right: 20px;
+	}
+
+	p {
+		margin: 0;
+	}
+
+	p:first-child {
+		font-weight: bold;
+	}
+`;
+
 const Oferta = ({ data }) => (
 	<ContentWrapper isSubpage>
 		<div>
@@ -95,7 +114,7 @@ const Oferta = ({ data }) => (
 				</div>
 			</li>
 		</OfferDetailsList>
-		<div>
+		<ContactDetails>
 			<img src={data.avatar.publicURL} alt="" />
 			<div>
 				<p>Kontakt:</p>
@@ -103,7 +122,7 @@ const Oferta = ({ data }) => (
 				<p>ania@msnieruchomosci.pl</p>
 				<p>730 026 439</p>
 			</div>
-		</div>
+		</ContactDetails>
 	</ContentWrapper>
 );
 
