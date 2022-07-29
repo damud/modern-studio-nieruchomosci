@@ -20,9 +20,9 @@ import {
 	WelcomeSection,
 	WelcomeSectionContent,
 	WelcomeSectionImage,
-} from '../assets/styles/pages/Homepage.styles';
-import { HighlightedHeading } from '../components/HighlightedHeading/HighlightedHeading';
-import { ContentWrapper } from '../components/ContentWrapper/ContentWrapper.styles';
+} from 'assets/styles/pages/Homepage.styles';
+import { HighlightedHeading } from 'components/HighlightedHeading/HighlightedHeading';
+import { ContentWrapper } from 'components/ContentWrapper/ContentWrapper.styles';
 
 const Homepage = ({ data }) => (
 	<>
