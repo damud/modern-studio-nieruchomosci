@@ -7,61 +7,62 @@ import { ContentWrapper } from '../components/ContentWrapper/ContentWrapper.styl
 const IntroSection = styled.section``;
 const PortfolioItem = styled.article``;
 
-const PortfolioItemInfo = styled.div``;
-
-const Realizacje = () => (
+const Realizacje = ({ data }) => (
 	<ContentWrapper isSubpage>
 		<IntroSection>
-			<HighlightedHeading>Poznaj nasze realizacje</HighlightedHeading>
-			<p>
-				Każda współpraca to dla nas wspaniała przygoda, a to co po niej
-				pozostaje, to pełna satysfakcja naszych klientów. Sprawdź, co udało nam
-				się do tej pory osiagnąć.
-			</p>
+			<div>
+				<HighlightedHeading>Poznaj nasze realizacje</HighlightedHeading>
+				<p>
+					Każda współpraca to dla nas wspaniała przygoda, a to co po niej
+					pozostaje, to pełna satysfakcja naszych klientów. Sprawdź, co udało
+					nam się do tej pory osiagnąć.
+				</p>
+			</div>
+			<img src={data.intro0.publicURL} alt="" />
 		</IntroSection>
 		<PortfolioItem>
-			<PortfolioItemInfo>
+			<div>
 				<HighlightedHeading>ul. Sielska</HighlightedHeading>
 				<p>
 					Usługa obejmowała zarówno pośrednictwo w wynajmie nieruchomości, jak
 					również pełną aranżację wnętrza i przestrzeni mieszkania. Nieruchomość
 					została zarezerwowana na 1 prezentacji.
 				</p>
-			</PortfolioItemInfo>
-			<img src="" alt="" />
+			</div>
+			<img src={data.sielska1.publicURL} alt="" />
 		</PortfolioItem>
 		<PortfolioItem>
-			<PortfolioItemInfo>
+			<div>
 				<HighlightedHeading>ul. Fieldorfa</HighlightedHeading>
 				<p>
 					Mieszkanie sprzedawane przez zaprzyjaźnionych właścicieli, z którymi
 					połączyłyśmy transakcję sprzedaży nieruchomości z zakupem ich nowego
 					mieszkania.
 				</p>
-			</PortfolioItemInfo>
-			<img src="" alt="" />
+			</div>
+			<img src={data.fieldorfa2.publicURL} alt="" />
 		</PortfolioItem>
 		<PortfolioItem>
-			<PortfolioItemInfo>
+			<div>
 				<HighlightedHeading>ul. Rolna</HighlightedHeading>
 				<p>
 					Nietuzinkowe mieszkanie, które zarówno na nas jak i na klientach
 					zrobiło ogromne wrażenie, a wisienką na torcie był przestronny i
 					klimatyczny taras na dachu.
 				</p>
-			</PortfolioItemInfo>
-			<img src="" alt="" />
+			</div>
+			<img src={data.rolna3.publicURL} alt="" />
 		</PortfolioItem>
 		<PortfolioItem>
-			<PortfolioItemInfo>
+			<div>
 				<HighlightedHeading>ul. Staszica</HighlightedHeading>
 				<p>
 					Transakcja wynajmu mieszkania, przy której na naszych oczach zrodziła
 					się piękna przyjaźń między Wynajmującą - Panią Katarzyną, a
 					Najemczynią - Panią Gosią
 				</p>
-			</PortfolioItemInfo>
-			<img src="" alt="" />
+			</div>
+			<img src={data.staszica4.publicURL} alt="" />
 		</PortfolioItem>
 	</ContentWrapper>
 );
