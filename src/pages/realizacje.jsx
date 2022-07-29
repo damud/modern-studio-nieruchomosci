@@ -4,7 +4,30 @@ import { HighlightedHeading } from 'components/HighlightedHeading/HighlightedHea
 import { graphql } from 'gatsby';
 import { ContentWrapper } from '../components/ContentWrapper/ContentWrapper.styles';
 
-const IntroSection = styled.section``;
+const IntroSection = styled.section`
+	img {
+		width: 100%;
+	}
+	${({ theme }) => theme.mq.desktop} {
+		display: flex;
+		align-items: center;
+		position: relative;
+		div {
+			width: 50%;
+			padding-right: 80px;
+		}
+		img {
+			width: 50%;
+		}
+		${({ theme }) =>
+			theme.effect.corner({
+				position: 'bottomRight',
+				size: '100px',
+				distance: '40px',
+			})};
+	}
+`;
+
 const PortfolioItem = styled.article``;
 
 const Realizacje = ({ data }) => (
