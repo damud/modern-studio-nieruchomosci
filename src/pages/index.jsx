@@ -13,7 +13,6 @@ import {
 	ShowcaseSection,
 	StyledButton,
 	StyledLinkButton,
-	StyledList,
 	StyledReview,
 	TeamImage,
 	TeamSection,
@@ -21,6 +20,7 @@ import {
 	WelcomeSectionContent,
 	WelcomeSectionImage,
 } from 'assets/styles/pages/Homepage.styles';
+import { StyledList } from 'components/StyledList/StyledList.styles';
 import { HighlightedHeading } from 'components/HighlightedHeading/HighlightedHeading';
 import { ContentWrapper } from 'components/ContentWrapper/ContentWrapper.styles';
 
