@@ -18,8 +18,51 @@ const ContactInfoWrapper = styled.section`
 	}
 `;
 
+const ContactPhoto = styled.div`
+	display: none;
+
+	${({ theme }) => theme.mq.desktop} {
+		display: initial;
+		position: relative;
+		background-image: url('${({ imageSource }) => imageSource}');
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-position: 0 80%;
+
+		${({ theme }) =>
+			theme.effect.corner({
+				position: 'bottomLeft',
+				size: '100px',
+				distance: '30px;',
+				color: theme.color.steel,
+			})};
+	}
+`;
+
+const ContactContentWrapper = styled(ContentWrapper)`
+	${({ theme }) => theme.mq.desktop} {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		grid-gap: 0 100px;
+
+		${ContactForm} {
+			width: 100%;
+			margin: 0;
+		}
+
+		${ContactForm}, ${ContactInfoWrapper} {
+			grid-column: 1 / 2;
+		}
+
+		${ContactPhoto} {
+			grid-column: 2 / 3;
+			grid-row: 1 / 3;
+		}
+	}
+`;
+
 const Kontakt = ({ data }) => (
-	<ContentWrapper isSubpage>
+	<ContactContentWrapper isSubpage>
 		<ContactInfoWrapper>
 			<HighlightedHeading>Kontakt</HighlightedHeading>
 			<p>
@@ -39,8 +82,8 @@ const Kontakt = ({ data }) => (
 			<textarea name="message" id="message" placeholder="Wiadomość" />
 			<StyledButton>Wyślij</StyledButton>
 		</ContactForm>
-		<img src={data.hero.publicURL} />
-	</ContentWrapper>
+		<ContactPhoto imageSource={data.hero.publicURL} />
+	</ContactContentWrapper>
 );
 
 export const query = graphql`
