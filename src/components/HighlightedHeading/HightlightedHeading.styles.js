@@ -16,10 +16,11 @@ export const StyledHeading = styled.div`
 
 	${({ theme }) => theme.mq.desktop} {
 		&::before {
-			width: 50%;
+			width: ${({ width }) => (width ? `${width}%` : '50%')};
 			height: calc(${({ theme }) => theme.font.size.headingSmall} * 1.5);
 			top: calc(-${({ theme }) => theme.font.size.headingSmall} / 6);
-			left: -5%;
+			left: ${({ isRight }) => (isRight ? 'unset' : '-5%')};
+			right: ${({ isRight }) => (isRight ? '-5%' : 'unset')};
 			background-color: ${({ theme }) => theme.color.beige};
 		}
 	}

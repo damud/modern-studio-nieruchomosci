@@ -48,7 +48,9 @@ const Homepage = ({ data }) => (
 				<WelcomeSectionImage imageSource={data.welcome.publicURL} />
 			</WelcomeSection>
 			<AdvantagesSection>
-				<HighlightedHeading>Dlaczego szukasz właśnie nas?</HighlightedHeading>
+				<HighlightedHeading width="50" isRight>
+					Dlaczego szukasz właśnie nas?
+				</HighlightedHeading>
 				<StyledList>
 					<li>
 						<h3> Kompleksowa obsługa</h3>
