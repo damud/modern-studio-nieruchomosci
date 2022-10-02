@@ -8,7 +8,6 @@ export const HighlightedHeading = ({
 	level = '2',
 	children,
 	isRight = false,
-	...props
 }) => {
 	const headingRef = useRef(null);
 	const [playState, setPlayState] = useState(false);
