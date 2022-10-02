@@ -91,7 +91,9 @@ const Homepage = ({ data }) => (
 			</ShowcaseSection>
 			<ServicesSection>
 				<div>
-					<HighlightedHeading>Twój komfort ponad wszystko</HighlightedHeading>
+					<HighlightedHeading width="55">
+						Twój komfort ponad wszystko
+					</HighlightedHeading>
 					<StyledLinkButton>
 						Sprawdź pełen zakres naszych usług
 					</StyledLinkButton>
@@ -135,7 +137,9 @@ const Homepage = ({ data }) => (
 			</ServicesSection>
 			<TeamSection>
 				<div>
-					<HighlightedHeading>Poznaj nasz zespół</HighlightedHeading>
+					<HighlightedHeading isRight width="70">
+						Poznaj nasz zespół
+					</HighlightedHeading>
 					<p>
 						Dzięki doskonałej współpracy i przyjacielskiej atmosferze udało nam
 						się stworzyć zespół dokosnały.
@@ -147,7 +151,9 @@ const Homepage = ({ data }) => (
 			</TeamSection>
 			<ReviewsSection>
 				<div>
-					<HighlightedHeading>Co mówią o nas nasi klienci?</HighlightedHeading>
+					<HighlightedHeading width="70">
+						Co mówią o nas nasi klienci?
+					</HighlightedHeading>
 					<p>
 						Bezkompromisowo wspieramy naszych klientów a ich satysfakcja jest
 						dla nas najważniejszym celem.
@@ -174,7 +180,9 @@ const Homepage = ({ data }) => (
 				</div>
 			</ReviewsSection>
 			<ContactForm action="#">
-				<HighlightedHeading>Napisz do nas</HighlightedHeading>
+				<HighlightedHeading isRight width="60">
+					Napisz do nas
+				</HighlightedHeading>
 				<label htmlFor="email">Adres e-mail</label>
 				<input
 					type="email"
