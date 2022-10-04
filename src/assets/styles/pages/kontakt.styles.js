@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { ContentWrapper } from '../../../components/ContentWrapper/ContentWrapper.styles';
+import { CornerEffect } from '../../../components/CornerEffectProvider/CornerEffect';
 import { ContactForm } from './homepage.styles';
 
 export const ContactInfoWrapper = styled.section`
@@ -11,7 +12,7 @@ export const ContactInfoWrapper = styled.section`
 	}
 `;
 
-export const ContactPhoto = styled.div`
+export const ContactPhoto = styled(CornerEffect)`
 	display: none;
 
 	${({ theme }) => theme.mq.desktop} {
@@ -21,14 +22,6 @@ export const ContactPhoto = styled.div`
 		background-repeat: no-repeat;
 		background-size: cover;
 		background-position: 0 80%;
-
-		${({ theme }) =>
-			theme.effect.corner({
-				position: 'bottomLeft',
-				size: '100px',
-				distance: '30px;',
-				color: theme.color.steel,
-			})};
 	}
 `;
 

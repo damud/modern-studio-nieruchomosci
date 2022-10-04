@@ -8,6 +8,7 @@ import {
 	HeroParagraph,
 	ReviewsSection,
 	ServicesSection,
+	ShowcaseCorner,
 	ShowcaseGallery,
 	ShowcaseImage,
 	ShowcaseSection,
@@ -34,7 +35,12 @@ const Homepage = ({ data }) => (
 		</Hero>
 		<ContentWrapper>
 			<WelcomeSection>
-				<WelcomeSectionContent>
+				<WelcomeSectionContent
+					position="topRight"
+					size="100px"
+					distance="30px"
+					offset="600"
+				>
 					<h2>Obsługę nieruchomości wymyśliliśmy na nowo</h2>
 					<p>
 						Modern Studio to nowoczesne biuro nieruchomości z profesjonalnym i
@@ -45,7 +51,13 @@ const Homepage = ({ data }) => (
 						to, co jest w stanie zaoferować konkurencja.
 					</p>
 				</WelcomeSectionContent>
-				<WelcomeSectionImage imageSource={data.welcome.publicURL} />
+				<WelcomeSectionImage
+					position="bottomLeft"
+					color="beige"
+					size="100px"
+					distance="30px"
+					imageSource={data.welcome.publicURL}
+				/>
 			</WelcomeSection>
 			<AdvantagesSection>
 				<HighlightedHeading width="50" isRight>
@@ -53,7 +65,7 @@ const Homepage = ({ data }) => (
 				</HighlightedHeading>
 				<StyledList>
 					<li>
-						<h3> Kompleksowa obsługa</h3>
+						<h3>Kompleksowa obsługa</h3>
 						<p>
 							Kupujesz, sprzedajesz lub chcesz wynająć nieruchomość? Zajmiemy
 							się Twoją sprawą od A do Z, aby zaoszczędzić Twój czas.
@@ -71,7 +83,7 @@ const Homepage = ({ data }) => (
 						<p>
 							Doskonale rozumiemy Twoje potrzeby. Jesteśmy zespołem o
 							zróżnicowanych kompetencjach, dzięki którym świetnie się
-							uzupełniamy.
+							uzupełniamy
 						</p>
 					</li>
 				</StyledList>
@@ -79,14 +91,26 @@ const Homepage = ({ data }) => (
 			<ShowcaseSection>
 				<h2>Oferta</h2>
 				<div>
-					<StyledButton>Bieżące oferty</StyledButton>
-					<StyledButton>Nasze realizacje</StyledButton>
+					<StyledButton isCentered>Bieżące oferty</StyledButton>
+					<StyledButton isCentered>Nasze realizacje</StyledButton>
 				</div>
 				<ShowcaseGallery>
 					<ShowcaseImage src={data.grid1.publicURL} alt="#" />
 					<ShowcaseImage isBig src={data.grid2.publicURL} alt="#" />
 					<ShowcaseImage src={data.grid3.publicURL} alt="#" />
 					<ShowcaseImage isBig src={data.grid4.publicURL} alt="#" />
+					<ShowcaseCorner
+						position="bottomLeft"
+						size="100px"
+						distance="30px"
+						color="beige"
+					/>
+					<ShowcaseCorner
+						position="topRight"
+						size="100px"
+						distance="30px"
+						color="dark"
+					/>
 				</ShowcaseGallery>
 			</ShowcaseSection>
 			<ServicesSection>
@@ -146,8 +170,23 @@ const Homepage = ({ data }) => (
 					</p>
 					<StyledLinkButton>Sprawdź, kim jesteśmy</StyledLinkButton>
 				</div>
-				<TeamImage imageSource={data.team1.publicURL} alt="" />
-				<TeamImage imageSource={data.team2.publicURL} alt="" />
+				<TeamImage
+					offset="700"
+					position="bottomLeft"
+					size="70px"
+					distance="20px"
+					color="beige"
+					imageSource={data.team1.publicURL}
+					alt=""
+				/>
+				<TeamImage
+					position="topRight"
+					size="100px"
+					distance="30px"
+					color="dark"
+					imageSource={data.team2.publicURL}
+					alt=""
+				/>
 			</TeamSection>
 			<ReviewsSection>
 				<div>
@@ -186,7 +225,7 @@ const Homepage = ({ data }) => (
 				<label htmlFor="email">Adres e-mail</label>
 				<input
 					type="email"
-					name="emial"
+					name="email"
 					id="email"
 					placeholder="Adres e-mail"
 				/>

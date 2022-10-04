@@ -2,9 +2,10 @@ import styled from 'styled-components';
 import { Link } from 'gatsby';
 import arrowIcon from 'assets/icons/arrow.svg';
 import { StyledList } from 'components/StyledList/StyledList.styles';
+import { CornerEffect } from '../../../components/CornerEffectProvider/CornerEffect';
 
 export const StyledButton = styled.button`
-	border: 1px solid ${({ theme }) => theme.color.black};
+	border: 1px solid ${({ theme }) => theme.color.dark};
 	background-color: transparent;
 	font-size: ${({ theme }) => theme.font.size.button};
 	font-family: ${({ theme }) => theme.font.family.montserrat};
@@ -20,10 +21,9 @@ export const StyledLinkButton = styled(Link)`
 	font-size: ${({ theme }) => theme.font.size.paragraph};
 	color: ${({ theme }) => theme.color.dark};
 	text-decoration: underline;
-	display: inline-block;
 	position: relative;
+	display: inline-block;
 	margin: 5px 0 10px;
-
 	&::after {
 		position: absolute;
 		content: '';
@@ -74,7 +74,7 @@ const StyledSection = styled.section`
 	margin: 100px 0;
 
 	${({ theme }) => theme.mq.desktop} {
-		margin: 10 0px 0;
+		margin: 100px 0;
 	}
 `;
 
@@ -83,10 +83,10 @@ export const WelcomeSection = styled(StyledSection)`
 
 	${({ theme }) => theme.mq.desktop} {
 		width: 100%;
-		margin: 180px 0 150px;
 		position: relative;
 		display: flex;
 		justify-content: space-between;
+		margin: 180px 0 150px;
 	}
 
 	${({ theme }) => theme.mq.bigDesktop} {
@@ -94,37 +94,25 @@ export const WelcomeSection = styled(StyledSection)`
 	}
 `;
 
-export const WelcomeSectionContent = styled.div`
+export const WelcomeSectionContent = styled(CornerEffect)`
 	background-color: ${({ theme }) => theme.color.dark};
 	padding: 30px 20px;
 	position: relative;
 	h2 {
-		margin: 0 0 20 px 0;
+		margin: 0 0 20px 0;
 		font-size: 2.5rem;
 		font-weight: 400;
 		color: white;
 	}
-
 	p {
-		font-size: ${({ theme }) => theme.font.size.paragraph};
-		font-weight: 300;
 		color: white;
+		font-size: ${({ theme }) => theme.font.size.paragraph};
 	}
 
-	&::after {
-		position: absolute;
-		width: 70px;
-		height: 70px;
-		content: '';
-		clip-path: polygon(0 16%, 0 0, 100% 0, 100% 100%, 84% 100%, 84% 16%);
-		background-color: ${({ theme }) => theme.color.dark};
-		right: -20px;
-		top: -20px;
-	}
 	${({ theme }) => theme.mq.desktop} {
 		position: absolute;
-		width: 55%;
-		top: 80px;
+		width: 50%;
+		top: 100px;
 		height: auto;
 		padding: 50px;
 		right: 20px;
@@ -135,11 +123,11 @@ export const WelcomeSectionContent = styled.div`
 	}
 
 	${({ theme }) => theme.mq.bigDesktop} {
-		top: 130px;
+		top: 150px;
 	}
 `;
 
-export const WelcomeSectionImage = styled.div`
+export const WelcomeSectionImage = styled(CornerEffect)`
 	margin-top: 10px;
 	width: 90%;
 	height: 170px;
@@ -148,21 +136,12 @@ export const WelcomeSectionImage = styled.div`
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: 0 80%;
-	&::after {
-		position: absolute;
-		width: 70px;
-		height: 70px;
-		content: '';
-		clip-path: polygon(0 0, 16% 0, 16% 84%, 100% 84%, 100% 100%, 0 100%);
-		background-color: ${({ theme }) => theme.color.beige};
-		left: -20px;
-		bottom: -20px;
-	}
+
 	${({ theme }) => theme.mq.desktop} {
 		z-index: -1;
 		top: -80px;
 		height: 500px;
-		width: 80%;
+		width: 70%;
 	}
 `;
 
@@ -184,13 +163,13 @@ export const ShowcaseSection = styled(StyledSection)`
 		display: flex;
 		flex-direction: column;
 	}
+
 	${({ theme }) => theme.mq.desktop} {
 		margin-top: -60px;
 
 		h2 {
 			margin: 0 0 30px;
 		}
-
 		div:nth-child(2) {
 			display: flex;
 			flex-direction: row;
@@ -200,7 +179,8 @@ export const ShowcaseSection = styled(StyledSection)`
 `;
 
 export const ShowcaseGallery = styled.div`
-	margin: 50px 0 50px;
+	margin: 25px 0 50px;
+	position: relative;
 
 	${({ theme }) => theme.mq.desktop} {
 		margin: 50px 0 50px;
@@ -209,39 +189,27 @@ export const ShowcaseGallery = styled.div`
 		grid-template-rows: 1fr 1fr 1fr;
 		grid-gap: 25px;
 		position: relative;
-
-		${({ theme }) =>
-			theme.effect.corner({
-				position: 'topRight',
-				distance: '30px',
-				size: '80px',
-				pseudoelement: 'after',
-			})};
-		${({ theme }) =>
-			theme.effect.corner({
-				position: 'bottomLeft',
-				distance: '30px',
-				size: '80px',
-				pseudoelement: 'before',
-				color: theme.color.beige,
-			})};
-
 		img:nth-child(1) {
-			grid-row: 1/2;
+			grid-row: 1 / 2;
 		}
-
 		img:nth-child(2) {
-			grid-row: 1/3;
+			grid-row: 1 / 3;
 		}
-
 		img:nth-child(3) {
-			grid-row: 2/4;
+			grid-row: 2 / 4;
 		}
-
 		img:nth-child(4) {
-			grid-row: 3/4;
+			grid-row: 3 / 4;
 		}
 	}
+`;
+
+export const ShowcaseCorner = styled(CornerEffect)`
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	left: 0;
+	top: 0;
 `;
 
 export const ShowcaseImage = styled.img`
@@ -262,28 +230,33 @@ export const ServicesSection = styled(StyledSection)`
 		grid-template-columns: 1fr 1fr;
 		grid-gap: 0 50px;
 
+		div:first-child {
+			display: flex;
+			flex-direction: column;
+			align-items: flex-start;
+		}
+
 		& > p {
 			align-self: center;
 			max-width: 450px;
 		}
+
 		${StyledList} {
+			grid-row: 2 / 2;
+			grid-column: 1 / 3;
 			display: grid;
 			grid-template-columns: repeat(4, 1fr);
-			grid-row: 2/2;
-			grid-column: 1/3;
 		}
 	}
 `;
 
-export const TeamImage = styled.div`
+export const TeamImage = styled(CornerEffect)`
 	margin-top: 30px;
 	width: 90%;
 	height: 300px;
-	position: relative;
 	background-image: url('${({ imageSource }) => imageSource}');
 	background-repeat: no-repeat;
 	background-size: cover;
-	${({ theme }) => theme.effect.corner({ position: 'bottomLeft' })};
 `;
 
 export const TeamSection = styled(StyledSection)`
@@ -310,12 +283,6 @@ export const TeamSection = styled(StyledSection)`
 			grid-row: 2 / 3;
 			width: 50%;
 			justify-self: end;
-			${({ theme }) =>
-				theme.effect.corner({
-					position: 'bottomLeft',
-					size: '100px',
-					distance: '30px',
-				})};
 		}
 
 		${TeamImage}:last-child {
@@ -323,22 +290,6 @@ export const TeamSection = styled(StyledSection)`
 			grid-row: 1 / 3;
 			grid-column: 2 / 3;
 			display: block;
-			${({ theme }) =>
-				theme.effect.corner({
-					position: 'topRight',
-					pseudoelement: 'before',
-					color: theme.color.beige,
-					size: '100px',
-					distance: '30px',
-				})};
-			${({ theme }) =>
-				theme.effect.corner({
-					position: 'bottomLeft',
-					pseudoelement: 'after',
-					color: theme.color.beige,
-					size: '0px',
-					distance: '0px',
-				})};
 		}
 	}
 `;
@@ -359,7 +310,6 @@ export const ReviewsSection = styled(StyledSection)`
 				margin: 0;
 			}
 		}
-
 		div:last-child {
 			grid-row: 1 / 1;
 			grid-column: 1 / 2;
@@ -373,7 +323,7 @@ export const StyledReview = styled.div`
 	margin: 30px 0;
 
 	p:last-child {
-		margin-bottom: 30px;
+		margin-top: 30px;
 		font-weight: 700;
 	}
 `;
@@ -382,6 +332,10 @@ export const ContactForm = styled.form`
 	display: flex;
 	flex-direction: column;
 	margin-bottom: 100px;
+
+	button {
+		margin: 10px 0;
+	}
 
 	label {
 		font-family: ${({ theme }) => theme.font.family.montserrat};

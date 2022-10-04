@@ -10,18 +10,21 @@ export const CornerEffect = ({
 	size = '70px',
 	color = 'dark',
 	pseudoelement = 'after',
+	offset = '400',
+	...props
 }) => {
 	const itemRef = useRef(null);
 	const [playState, setPlayState] = useState(false);
 
 	const handlePlayStateChange = throttle(() => {
 		const { top } = itemRef.current.getBoundingClientRect();
-		if (top < 400) {
+		if (top < parseInt(offset, 10)) {
 			setPlayState(true);
 		}
 	}, 150);
 
 	useEffect(() => {
+		handlePlayStateChange();
 		document.addEventListener('scroll', handlePlayStateChange);
 
 		return () => {
@@ -38,6 +41,7 @@ export const CornerEffect = ({
 			pseudoelement={pseudoelement}
 			playState={playState}
 			ref={itemRef}
+			{...props}
 		>
 			{children}
 		</CornerEffectWrapper>
@@ -52,6 +56,7 @@ CornerEffect.propTypes = {
 		'bottomRight',
 	]),
 	size: PropTypes.string,
+	offset: PropTypes.string,
 	color: PropTypes.oneOf(['beige', 'steel', 'dark']),
 	pseudoelement: PropTypes.oneOf(['after', 'before']),
 	distance: PropTypes.string,
