@@ -16,6 +16,14 @@ module.exports = {
 	},
 	plugins: [
 		{
+			resolve: `gatsby-source-contentful`,
+			options: {
+				spaceId: `88blcf90vcnn`,
+				// Learn about environment variables: https://gatsby.dev/env-vars
+				accessToken: 'zftJGHmlJoSPfr2_5mRP11nwFXsmHrdRDj7q57D8IQg',
+			},
+		},
+		{
 			resolve: 'gatsby-plugin-eslint',
 			options: {
 				failOnError: false,
