@@ -70,15 +70,7 @@ const Oferta = ({ data }) => (
 				</div>
 			</li>
 		</OfferDetailsList>
-		<ContactDetails>
-			<img src={data.avatar.publicURL} alt="" />
-			<div>
-				<p>Kontakt:</p>
-				<p>Anna Żarczyńska</p>
-				<p>ania@msnieruchomosci.pl</p>
-				<p>730 026 439</p>
-			</div>
-		</ContactDetails>
+		<ContactDetails />
 	</StyledContentWrapper>
 );
 

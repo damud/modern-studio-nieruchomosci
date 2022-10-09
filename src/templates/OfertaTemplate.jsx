@@ -7,7 +7,6 @@ import RoomsIcon from 'assets/icons-components/rooms.svg';
 import BuildingTypeIcon from 'assets/icons-components/building-type.svg';
 import {
 	Address,
-	ContactDetails,
 	OfferDescription,
 	OfferDetailsList,
 	OfferTitle,
@@ -15,8 +14,9 @@ import {
 } from 'assets/styles/pages/Oferta.styles';
 import { HighlightedHeading } from 'components/HighlightedHeading/HighlightedHeading';
 import { Gallery } from 'assets/styles/pages/Oferty.styles';
+import { ContactDetails } from 'components/ContactDetails/ContactDetails';
 
-const OfertaTemplate = ({ data: { oferta, avatar } }) => (
+const OfertaTemplate = ({ data: { oferta } }) => (
 	<StyledContentWrapper isSubpage>
 		<OfferTitle>
 			<Address>{oferta.adres}</Address>
@@ -64,15 +64,7 @@ const OfertaTemplate = ({ data: { oferta, avatar } }) => (
 				</div>
 			</li>
 		</OfferDetailsList>
-		<ContactDetails>
-			<img src={avatar.publicURL} alt="" />
-			<div>
-				<p>Kontakt:</p>
-				<p>Anna Żarczyńska</p>
-				<p>ania@msnieruchomosci.pl</p>
-				<p>730 026 439</p>
-			</div>
-		</ContactDetails>
+		<ContactDetails contact={oferta.kontakt} />
 	</StyledContentWrapper>
 );
 
