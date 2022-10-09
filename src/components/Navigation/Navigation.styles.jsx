@@ -1,7 +1,7 @@
-import React from 'react';
 import styled from 'styled-components';
-import Logo from 'assets/icons-components/logo.svg';
-import { StyledIcon } from 'components/StyledIcon/StyledIcon';
+import React from 'react';
+import Logo from '../../assets/icons-components/logo.svg';
+import { StyledIcon } from '../StyledIcon/StyledIcon';
 
 export const OuterWrapper = styled.div`
 	display: flex;
@@ -72,9 +72,14 @@ export const StyledLogo = styled(({ isMobile, isSmall, ...props }) => (
 `;
 
 export const StyledSocialIcon = styled(StyledIcon)`
+	display: inline-block;
 	margin: 0 20px;
 	width: 50px;
 	height: 50px;
+
+	svg {
+		width: 100%;
+	}
 
 	${({ theme }) => theme.mq.desktop} {
 		width: 25px;
@@ -98,6 +103,7 @@ export const StyledNavigation = styled.nav`
 				font-size: ${({ theme }) => theme.font.size.mobileMenu};
 			}
 		}
+
 		${({ theme }) => theme.mq.desktop} {
 			li {
 				a {

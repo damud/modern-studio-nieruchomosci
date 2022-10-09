@@ -11,10 +11,18 @@ import {
 	OfferDetailsList,
 	OfferTitle,
 	StyledContentWrapper,
+	Gallery,
 } from 'assets/styles/pages/Oferta.styles';
 import { HighlightedHeading } from 'components/HighlightedHeading/HighlightedHeading';
-import { Gallery } from 'assets/styles/pages/Oferty.styles';
 import { ContactDetails } from 'components/ContactDetails/ContactDetails';
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
+import { Carousel } from 'react-responsive-carousel';
+
+const galleryOptions = {
+	showStatus: false,
+	showThumbs: false,
+	infiniteLoop: true,
+};
 
 const OfertaTemplate = ({ data: { oferta } }) => (
 	<StyledContentWrapper isSubpage>
@@ -23,7 +31,11 @@ const OfertaTemplate = ({ data: { oferta } }) => (
 			<HighlightedHeading>{oferta.tytul}</HighlightedHeading>
 		</OfferTitle>
 		<Gallery>
-			<img src={oferta.galeria[0].file.url} alt="" />
+			<Carousel {...galleryOptions}>
+				{oferta.galeria.map((item) => (
+					<img src={item.file.url} key={item.file.url} alt="" />
+				))}
+			</Carousel>
 		</Gallery>
 		<OfferDescription>{oferta.opis.opis}</OfferDescription>
 		<OfferDetailsList>
