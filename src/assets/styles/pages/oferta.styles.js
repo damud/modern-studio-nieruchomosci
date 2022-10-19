@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { ContentWrapper } from 'components/ContentWrapper/ContentWrapper.styles';
+import { ContactDetails } from 'components/ContactDetails/ContactDetails';
 
 export const Address = styled.p`
 	font-weight: 700;
@@ -33,34 +34,20 @@ export const OfferDetailsList = styled.ul`
 			font-weight: 700;
 		}
 	}
-`;
 
-export const ContactDetails = styled.div`
-	display: flex;
-	margin-bottom: 50px;
-
-	img {
-		width: 100px;
-		height: 100px;
-		margin-right: 20px;
-	}
-
-	p {
-		margin: 0;
-	}
-
-	p:first-child {
-		font-weight: bold;
+	${({ theme }) => theme.mq.desktop} {
+		margin: 50px 0;
+		li {
+			margin: 30px 0;
+		}
+		div {
+			display: flex;
+		}
 	}
 `;
 
 export const Gallery = styled.div`
 	width: 100%;
-
-	img {
-		width: 100%;
-		max-height: 400px;
-	}
 `;
 
 export const OfferDescription = styled.p`
@@ -79,7 +66,11 @@ export const OfferDescription = styled.p`
 	}
 `;
 
-export const OfferTitle = styled.div``;
+export const OfferTitle = styled.div`
+	${({ theme }) => theme.mq.desktop} {
+		margin-bottom: 30px;
+	}
+`;
 
 export const StyledContentWrapper = styled(ContentWrapper)`
 	display: grid;

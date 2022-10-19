@@ -15,15 +15,17 @@
   },
   "dependencies": {
     "@babel/eslint-parser": "^7.18.2",
+    "@formspree/react": "^2.4.0",
     "babel-plugin-styled-components": "^2.0.7",
     "gatsby": "^4.18.2",
     "gatsby-plugin-google-analytics": "^4.18.0",
-    "gatsby-plugin-image": "^2.18.1",
+    "gatsby-plugin-image": "^2.24.0",
     "gatsby-plugin-manifest": "^4.18.1",
     "gatsby-plugin-react-helmet": "^5.18.0",
     "gatsby-plugin-sharp": "^4.18.1",
     "gatsby-plugin-sitemap": "^5.18.1",
     "gatsby-plugin-styled-components": "^5.18.0",
+    "gatsby-source-contentful": "^7.22.0",
     "gatsby-source-filesystem": "^4.18.1",
     "gatsby-transformer-sharp": "^4.18.1",
     "lodash.throttle": "^4.1.1",
@@ -32,6 +34,8 @@
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
     "react-helmet": "^6.1.0",
+    "react-responsive-carousel": "^3.2.23",
+    "slugify": "^1.6.5",
     "styled-components": "^5.3.5"
   },
   "devDependencies": {

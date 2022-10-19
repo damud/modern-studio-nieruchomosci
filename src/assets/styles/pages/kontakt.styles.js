@@ -1,7 +1,7 @@
 import styled from 'styled-components';
+import { ContactFormWrapper } from '../../../components/ContactForm/ContactForm.styles';
 import { ContentWrapper } from '../../../components/ContentWrapper/ContentWrapper.styles';
 import { CornerEffect } from '../../../components/CornerEffectProvider/CornerEffect';
-import { ContactForm } from './homepage.styles';
 
 export const ContactInfoWrapper = styled.section`
 	a {
@@ -31,12 +31,12 @@ export const ContactContentWrapper = styled(ContentWrapper)`
 		grid-template-columns: repeat(2, 1fr);
 		grid-gap: 0 100px;
 
-		${ContactForm} {
-			width: 100%;
+		${ContactFormWrapper} {
+			width: 100% !important;
 			margin: 0;
 		}
 
-		${ContactForm}, ${ContactInfoWrapper} {
+		${ContactFormWrapper}, ${ContactInfoWrapper} {
 			grid-column: 1 / 2;
 		}
 
