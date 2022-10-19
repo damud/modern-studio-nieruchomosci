@@ -3,25 +3,27 @@ import { graphql } from 'gatsby';
 import {
 	AdvantagesSection,
 	ContactForm,
-	ContentWrapper,
 	Hero,
 	HeroHeading,
 	HeroParagraph,
 	ReviewsSection,
 	ServicesSection,
+	ShowcaseCorner,
 	ShowcaseGallery,
 	ShowcaseImage,
 	ShowcaseSection,
 	StyledButton,
 	StyledLinkButton,
-	StyledList,
+	StyledReview,
 	TeamImage,
 	TeamSection,
 	WelcomeSection,
 	WelcomeSectionContent,
 	WelcomeSectionImage,
-} from '../assets/styles/pages/Homepage.styles';
-import { HighlightedHeading } from '../components/HighlightedHeading/HighlightedHeading';
+} from 'assets/styles/pages/Homepage.styles';
+import { StyledList } from 'components/StyledList/StyledList.styles';
+import { HighlightedHeading } from 'components/HighlightedHeading/HighlightedHeading';
+import { ContentWrapper } from 'components/ContentWrapper/ContentWrapper.styles';
 
 const Homepage = ({ data }) => (
 	<>
@@ -33,7 +35,12 @@ const Homepage = ({ data }) => (
 		</Hero>
 		<ContentWrapper>
 			<WelcomeSection>
-				<WelcomeSectionContent>
+				<WelcomeSectionContent
+					position="topRight"
+					size="100px"
+					distance="30px"
+					offset="600"
+				>
 					<h2>Obsługę nieruchomości wymyśliliśmy na nowo</h2>
 					<p>
 						Modern Studio to nowoczesne biuro nieruchomości z profesjonalnym i
@@ -44,13 +51,21 @@ const Homepage = ({ data }) => (
 						to, co jest w stanie zaoferować konkurencja.
 					</p>
 				</WelcomeSectionContent>
-				<WelcomeSectionImage imageSource={data.welcome.publicURL} />
+				<WelcomeSectionImage
+					position="bottomLeft"
+					color="beige"
+					size="100px"
+					distance="30px"
+					imageSource={data.welcome.publicURL}
+				/>
 			</WelcomeSection>
 			<AdvantagesSection>
-				<HighlightedHeading>Dlaczego szukasz właśnie nas?</HighlightedHeading>
+				<HighlightedHeading width="50" isRight>
+					Dlaczego szukasz właśnie nas?
+				</HighlightedHeading>
 				<StyledList>
 					<li>
-						<h3> Kompleksowa obsługa</h3>
+						<h3>Kompleksowa obsługa</h3>
 						<p>
 							Kupujesz, sprzedajesz lub chcesz wynająć nieruchomość? Zajmiemy
 							się Twoją sprawą od A do Z, aby zaoszczędzić Twój czas.
@@ -68,7 +83,7 @@ const Homepage = ({ data }) => (
 						<p>
 							Doskonale rozumiemy Twoje potrzeby. Jesteśmy zespołem o
 							zróżnicowanych kompetencjach, dzięki którym świetnie się
-							uzupełniamy.
+							uzupełniamy
 						</p>
 					</li>
 				</StyledList>
@@ -84,16 +99,34 @@ const Homepage = ({ data }) => (
 					<ShowcaseImage isBig src={data.grid2.publicURL} alt="#" />
 					<ShowcaseImage src={data.grid3.publicURL} alt="#" />
 					<ShowcaseImage isBig src={data.grid4.publicURL} alt="#" />
+					<ShowcaseCorner
+						position="bottomLeft"
+						size="100px"
+						distance="30px"
+						color="beige"
+					/>
+					<ShowcaseCorner
+						position="topRight"
+						size="100px"
+						distance="30px"
+						color="dark"
+					/>
 				</ShowcaseGallery>
 			</ShowcaseSection>
 			<ServicesSection>
-				<HighlightedHeading>Twój komfort ponad wszystko</HighlightedHeading>
+				<div>
+					<HighlightedHeading width="55">
+						Twój komfort ponad wszystko
+					</HighlightedHeading>
+					<StyledLinkButton>
+						Sprawdź pełen zakres naszych usług
+					</StyledLinkButton>
+				</div>
 				<p>
 					To, co dla innych biur nieruchomości wykracza poza zakres usług, dla
 					nas jest standardem. Wyróżnia nas bezkompromisowa troska o interes
 					klienta.
 				</p>
-				<StyledLinkButton>Sprawdź pełen zakres naszych usług</StyledLinkButton>
 				<StyledList>
 					<li>
 						<h3>Pośrednictwo</h3>
@@ -127,22 +160,46 @@ const Homepage = ({ data }) => (
 				</StyledList>
 			</ServicesSection>
 			<TeamSection>
-				<HighlightedHeading>Poznaj nasz zespół</HighlightedHeading>
-				<p>
-					Dzięki doskonałej współpracy i przyjacielskiej atmosferze udało nam
-					się stworzyć zespół dokosnały.
-				</p>
-				<StyledLinkButton>Sprawdź, kim jesteśmy</StyledLinkButton>
-				<TeamImage imageSource={data.team1.publicURL} alt="" />
+				<div>
+					<HighlightedHeading isRight width="70">
+						Poznaj nasz zespół
+					</HighlightedHeading>
+					<p>
+						Dzięki doskonałej współpracy i przyjacielskiej atmosferze udało nam
+						się stworzyć zespół dokosnały.
+					</p>
+					<StyledLinkButton>Sprawdź, kim jesteśmy</StyledLinkButton>
+				</div>
+				<TeamImage
+					offset="700"
+					position="bottomLeft"
+					size="70px"
+					distance="20px"
+					color="beige"
+					imageSource={data.team1.publicURL}
+					alt=""
+				/>
+				<TeamImage
+					position="topRight"
+					size="100px"
+					distance="30px"
+					color="dark"
+					imageSource={data.team2.publicURL}
+					alt=""
+				/>
 			</TeamSection>
 			<ReviewsSection>
-				<HighlightedHeading>Co mówią o nas nasi klienci?</HighlightedHeading>
-				<p>
-					Bezkompromisowo wspieramy naszych klientów a ich satysfakcja jest dla
-					nas najważniejszym celem.
-				</p>
 				<div>
-					<div>
+					<HighlightedHeading width="70">
+						Co mówią o nas nasi klienci?
+					</HighlightedHeading>
+					<p>
+						Bezkompromisowo wspieramy naszych klientów a ich satysfakcja jest
+						dla nas najważniejszym celem.
+					</p>
+				</div>
+				<div>
+					<StyledReview>
 						<p>
 							Udało się znaleźć kupca na nasze mieszkanie w jedne dzień! Cały
 							proces był przeprowadzony bardzo sprawnie, profesjonalnie i dla
@@ -150,23 +207,25 @@ const Homepage = ({ data }) => (
 							zawiłości i dopinania detali.
 						</p>
 						<p>Katarzyna</p>
-					</div>
-					<div>
+					</StyledReview>
+					<StyledReview>
 						<p>
 							Współpraca na najwyższym poziomie. Jeśli zależy Wam na szybkiej,
 							bezproblemowej sprzedaży czy zakupie mieszkania/ domu to nie ma
 							lepszego miejsca.
 						</p>
 						<p>Kamila</p>
-					</div>
+					</StyledReview>
 				</div>
 			</ReviewsSection>
 			<ContactForm action="#">
-				<HighlightedHeading>Napisz do nas</HighlightedHeading>
+				<HighlightedHeading isRight width="60">
+					Napisz do nas
+				</HighlightedHeading>
 				<label htmlFor="email">Adres e-mail</label>
 				<input
 					type="email"
-					name="emial"
+					name="email"
 					id="email"
 					placeholder="Adres e-mail"
 				/>

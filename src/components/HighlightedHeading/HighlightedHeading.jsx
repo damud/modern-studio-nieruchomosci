@@ -1,27 +1,48 @@
-import React from 'react';
-import styled from 'styled-components';
+import React, { useRef, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
+import throttle from 'lodash.throttle';
+import { StyledHeading } from './HightlightedHeading.styles';
 
-export const StyledHeading = styled.div`
-	font-size: ${({ theme }) => theme.font.size.headingSmall};
-	position: relative;
-	&::before {
-		z-index: -1;
-		position: absolute;
-		content: '';
-		width: 100%;
-		height: calc(${({ theme }) => theme.font.size.headingSmall} * 1.5);
-		top: calc(-${({ theme }) => theme.font.size.headingSmall} / 6);
-		left: -50%;
-		background-color: ${({ theme }) => theme.color.beige};
-	}
-`;
+export const HighlightedHeading = ({
+	width,
+	level = '2',
+	children,
+	isRight = false,
+}) => {
+	const headingRef = useRef(null);
+	const [playState, setPlayState] = useState(false);
 
-export const HighlightedHeading = ({ level = '2', children }) => (
-	<StyledHeading as={`h${level}`}>{children}</StyledHeading>
-);
+	const handlePlayStateChange = throttle(() => {
+		const { top } = headingRef.current.getBoundingClientRect();
+		if (top < 800) {
+			setPlayState(true);
+		}
+	}, 150);
+
+	useEffect(() => {
+		document.addEventListener('scroll', handlePlayStateChange);
+
+		return () => {
+			document.removeEventListener('scroll', handlePlayStateChange);
+		};
+	}, []);
+
+	return (
+		<StyledHeading
+			playState={playState}
+			ref={headingRef}
+			width={width}
+			isRight={isRight}
+			as={`h${level}`}
+		>
+			{children}
+		</StyledHeading>
+	);
+};
 
 HighlightedHeading.propTypes = {
 	children: PropTypes.node.isRequired,
 	level: PropTypes.string,
+	isRight: PropTypes.bool,
+	width: PropTypes.string,
 };

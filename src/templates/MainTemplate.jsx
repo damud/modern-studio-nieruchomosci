@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { ThemeProvider } from 'styled-components';
 import { GlobalStyle } from 'assets/styles/GlobalStyles';
 import { theme } from 'assets/styles/theme';
-import { Navigation } from 'components/Navigation';
+import { Navigation } from 'components/Navigation/Navigation';
 import 'normalize.css';
 
 export const MainTemplate = ({ children }) => (
