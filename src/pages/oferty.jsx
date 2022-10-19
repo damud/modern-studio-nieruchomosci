@@ -3,11 +3,12 @@ import { graphql } from 'gatsby';
 import { HighlightedHeading } from 'components/HighlightedHeading/HighlightedHeading';
 import { ContentWrapper } from 'components/ContentWrapper/ContentWrapper.styles';
 import {
-	FiltersList,
+	// eslint-disable-next-line no-unused-vars
+	EmptyState,
 	Gallery,
-	Welcome,
-} from '../assets/styles/pages/oferty.styles';
-import { Thumbnail } from '../components/Thumbnail/Thumbnail';
+	IntroSection,
+} from 'assets/styles/pages/oferty.styles';
+import { Thumbnail } from 'components/Thumbnail/Thumbnail';
 
 const Oferty = ({
 	data: {
@@ -15,28 +16,36 @@ const Oferty = ({
 	},
 }) => (
 	<ContentWrapper isSubpage>
-		<Welcome>
+		<IntroSection>
 			<HighlightedHeading>Nasza oferta</HighlightedHeading>
 			<p>
 				Nieustannie poszukujemy nowych ofert nieruchomości. Wybierz typ
 				nieruchomości, który Cię interesuje.
 			</p>
-		</Welcome>
-		<FiltersList>
-			<li>Mieszkanie</li>
-			<li>Dom</li>
-			<li>Działka</li>
-		</FiltersList>
-		<Gallery>
-			{oferty.map((oferta) => (
-				<Thumbnail
-					key={oferta.id}
-					imageSource={oferta.galeria[0].file.url}
-					address={oferta.adres}
-					title={oferta.tytul}
-				/>
-			))}
-		</Gallery>
+		</IntroSection>
+		{/* <FiltersList> */}
+		{/*  <li>Mieszkanie</li> */}
+		{/*  <li>Dom</li> */}
+		{/*  <li>Działka</li> */}
+		{/* </FiltersList> */}
+		{/* {oferty.length ? ( */}
+		{[].length ? (
+			<Gallery>
+				{oferty.map((oferta) => (
+					<Thumbnail
+						key={oferta.id}
+						imageSource={oferta.galeria[0].file.url}
+						address={oferta.adres}
+						title={oferta.tytul}
+					/>
+				))}
+			</Gallery>
+		) : (
+			<EmptyState>
+				<h2>Brak ofert</h2>
+				<h3>Już niebawem nowe oferty od Modern Studio</h3>
+			</EmptyState>
+		)}
 	</ContentWrapper>
 );
 

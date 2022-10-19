@@ -7,7 +7,7 @@ exports.onPostBuild = ({ reporter }) => {
 
 exports.createPages = async ({ graphql, actions }) => {
 	const { createPage } = actions;
-	const ofertaTemplate = path.resolve('src/templates/OfertaTemplate.jsx');
+	const ofertaTemplate = path.resolve('./src/templates/OfertaTemplate.jsx');
 	const result = await graphql(`
 		query {
 			allContentfulOferta {

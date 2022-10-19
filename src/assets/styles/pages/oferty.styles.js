@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Welcome = styled.div`
+export const IntroSection = styled.section`
 	${({ theme }) => theme.mq.desktop} {
 		text-align: center;
 		max-width: 500px;
@@ -15,20 +15,23 @@ export const FiltersList = styled.ul`
 	flex-direction: column;
 	list-style: none;
 	width: 100%;
-	justify-content: flex-start;
+	align-items: flex-start;
 
 	li {
 		padding: 10px 0;
 		font-weight: 700;
 	}
+
+	// TODO: remove after implementing state
 	li:first-child {
 		text-decoration: underline;
 	}
 
 	${({ theme }) => theme.mq.desktop} {
 		flex-direction: row;
-		justify-content: center;
 		align-items: center;
+		justify-content: center;
+
 		li {
 			padding: 20px 35px;
 		}
@@ -46,5 +49,27 @@ export const Gallery = styled.div`
 
 	${({ theme }) => theme.mq.desktop} {
 		grid-template-columns: repeat(3, 1fr);
+	}
+	${({ theme }) => theme.mq.huge} {
+		grid-template-columns: repeat(3, 1fr);
+	}
+`;
+
+export const EmptyState = styled.div`
+	margin: 0 auto;
+	text-align: center;
+	width: 500px;
+	padding: 30px;
+	background-color: ${({ theme }) => theme.color.beige};
+
+	h2 {
+		font-size: 3rem;
+		margin: 0;
+	}
+
+	h3 {
+		margin: 10px 0;
+		font-size: 1.6rem;
+		font-family: ${({ theme }) => theme.font.family.montserrat};
 	}
 `;
