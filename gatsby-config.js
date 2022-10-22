@@ -18,9 +18,8 @@ module.exports = {
 		{
 			resolve: `gatsby-source-contentful`,
 			options: {
-				spaceId: `88blcf90vcnn`,
-				// Learn about environment variables: https://gatsby.dev/env-vars
-				accessToken: 'zftJGHmlJoSPfr2_5mRP11nwFXsmHrdRDj7q57D8IQg',
+				spaceId: process.env.CONTENTFUL_SPACE_ID,
+				accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
 			},
 		},
 		{
@@ -37,7 +36,7 @@ module.exports = {
 		{
 			resolve: 'gatsby-plugin-google-analytics',
 			options: {
-				trackingId: 'gvkavrag7nip',
+				trackingId: 'G-V6VRN44JZT',
 			},
 		},
 		'gatsby-plugin-image',
