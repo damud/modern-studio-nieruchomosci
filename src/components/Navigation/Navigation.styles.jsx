@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import React from 'react';
-import Logo from '../../assets/icons-components/logo.svg';
+import Logo from 'assets/icons-components/logo.svg';
 import { StyledIcon } from '../StyledIcon/StyledIcon';
 
 export const OuterWrapper = styled.div`

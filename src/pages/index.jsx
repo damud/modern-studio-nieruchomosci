@@ -23,7 +23,7 @@ import {
 	WelcomeSectionImage,
 } from 'assets/styles/pages/homepage.styles';
 import { StyledList } from 'components/StyledList/StyledList.styles';
-import { ContactForm } from '../components/ContactForm/ContactForm';
+import { ContactForm } from 'components/ContactForm/ContactForm';
 
 const Homepage = ({ data }) => (
 	<ContentWrapper>

@@ -12,7 +12,7 @@ import {
 	OfferTitle,
 	StyledContentWrapper,
 	Gallery,
-} from 'assets/styles/pages/Oferta.styles';
+} from 'assets/styles/pages/oferta.styles';
 import { HighlightedHeading } from 'components/HighlightedHeading/HighlightedHeading';
 import { ContactDetails } from 'components/ContactDetails/ContactDetails';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
