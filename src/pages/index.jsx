@@ -2,6 +2,8 @@ import * as React from 'react';
 import { graphql, Link } from 'gatsby';
 import { HighlightedHeading } from 'components/HighlightedHeading/HighlightedHeading';
 import { ContentWrapper } from 'components/ContentWrapper/ContentWrapper.styles';
+import { StyledList } from 'components/StyledList/StyledList.styles';
+import { ContactForm } from 'components/ContactForm/ContactForm';
 import {
 	AdvantagesSection,
 	Hero,
@@ -21,9 +23,7 @@ import {
 	WelcomeSection,
 	WelcomeSectionContent,
 	WelcomeSectionImage,
-} from 'assets/styles/pages/homepage.styles';
-import { StyledList } from 'components/StyledList/StyledList.styles';
-import { ContactForm } from 'components/ContactForm/ContactForm';
+} from '../assets/styles/pages/homepage.styles';
 
 const Homepage = ({ data }) => (
 	<ContentWrapper>
