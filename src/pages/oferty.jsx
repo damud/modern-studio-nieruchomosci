@@ -5,6 +5,7 @@ import { ContentWrapper } from 'components/ContentWrapper/ContentWrapper.styles'
 import {
 	// eslint-disable-next-line no-unused-vars
 	EmptyState,
+	FiltersList,
 	Gallery,
 	IntroSection,
 } from 'assets/styles/pages/oferty.styles';
@@ -23,13 +24,12 @@ const Oferty = ({
 				nieruchomości, który Cię interesuje.
 			</p>
 		</IntroSection>
-		{/* <FiltersList> */}
-		{/*  <li>Mieszkanie</li> */}
-		{/*  <li>Dom</li> */}
-		{/*  <li>Działka</li> */}
-		{/* </FiltersList> */}
-		{/* {oferty.length ? ( */}
-		{[].length ? (
+		<FiltersList>
+			<li>Mieszkanie</li>
+			<li>Dom</li>
+			<li>Działka</li>
+		</FiltersList>
+		{oferty.length ? (
 			<Gallery>
 				{oferty.map((oferta) => (
 					<Thumbnail
