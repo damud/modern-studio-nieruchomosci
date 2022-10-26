@@ -32,6 +32,7 @@ module.exports = {
 				exclude: ['node_modules', 'bower_components', '.cache', 'public'],
 			},
 		},
+		'gatsby-transformer-remark',
 		'gatsby-plugin-styled-components',
 		{
 			resolve: 'gatsby-plugin-google-analytics',

@@ -3,7 +3,6 @@ import { graphql } from 'gatsby';
 import { HighlightedHeading } from 'components/HighlightedHeading/HighlightedHeading';
 import { ContentWrapper } from 'components/ContentWrapper/ContentWrapper.styles';
 import {
-	// eslint-disable-next-line no-unused-vars
 	EmptyState,
 	FiltersList,
 	Gallery,

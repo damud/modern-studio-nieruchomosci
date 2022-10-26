@@ -7,16 +7,16 @@ import RoomsIcon from 'assets/icons-components/rooms.svg';
 import BuildingTypeIcon from 'assets/icons-components/building-type.svg';
 import {
 	Address,
+	Gallery,
 	OfferDescription,
 	OfferDetailsList,
 	OfferTitle,
 	StyledContentWrapper,
-	Gallery,
 } from 'assets/styles/pages/oferta.styles';
 import { HighlightedHeading } from 'components/HighlightedHeading/HighlightedHeading';
-import { ContactDetails } from 'components/ContactDetails/ContactDetails';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import { Carousel } from 'react-responsive-carousel';
+import { ContactDetails } from 'components/ContactDetails/ContactDetails';
 
 const galleryOptions = {
 	showStatus: false,
@@ -37,41 +37,44 @@ const OfertaTemplate = ({ data: { oferta } }) => (
 				))}
 			</Carousel>
 		</Gallery>
-		<OfferDescription>{oferta.opis.opis}</OfferDescription>
+		<OfferDescription
+			dangerouslySetInnerHTML={{
+				__html: oferta.opis.childMarkdownRemark.html,
+			}}
+		/>
 		<OfferDetailsList>
 			<li>
 				<BuildingTypeIcon />
 				<div>
-					<p>Typ budynku</p>
+					<p>Typ budynku:</p>
 					<p>{oferta.typBudynku}</p>
 				</div>
 			</li>
-
 			<li>
 				<RoomsIcon />
 				<div>
-					<p>Pomieszczenia</p>
+					<p>Pomieszczenia:</p>
 					<p>{oferta.pomieszczenia}</p>
 				</div>
 			</li>
 			<li>
 				<AvailabilityIcon />
 				<div>
-					<p>Dostępność</p>
+					<p>Dostępność:</p>
 					<p>{oferta.dostepnosc}</p>
 				</div>
 			</li>
 			<li>
 				<AreaIcon />
 				<div>
-					<p>Powierzchnia</p>
+					<p>Powierzchnia:</p>
 					<p>{oferta.powierzchnia}</p>
 				</div>
 			</li>
 			<li>
 				<OfferTypeIcon />
 				<div>
-					<p>Rodzaj oferty</p>
+					<p>Rodzaj oferty:</p>
 					<p>{oferta.rodzajOferty}</p>
 				</div>
 			</li>
@@ -81,10 +84,8 @@ const OfertaTemplate = ({ data: { oferta } }) => (
 );
 
 export const query = graphql`
-	query {
-		oferta: contentfulOferta(
-			id: { eq: "fae3385c-d0fc-56c1-859e-fa0bfc7db2a4" }
-		) {
+	query ($id: String) {
+		oferta: contentfulOferta(id: { eq: $id }) {
 			tytul
 			typBudynku
 			rodzajOferty
@@ -93,7 +94,9 @@ export const query = graphql`
 			kontakt
 			dostepnosc
 			opis {
-				opis
+				childMarkdownRemark {
+					html
+				}
 			}
 			galeria {
 				file {
@@ -101,9 +104,6 @@ export const query = graphql`
 				}
 			}
 			adres
-		}
-		avatar: file(relativePath: { regex: "/oferta/temporary-avatar.jpg/" }) {
-			publicURL
 		}
 	}
 `;
